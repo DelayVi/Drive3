@@ -7,12 +7,12 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Car(
     var id: Int = UNDEFINED_ID,
-    var name: String,
+    var brand: String,
     var model: String,
-    var price: Double,
-    var engine: Double,
-    var color: String,
-    var imageUri: Uri
+    var price: String,
+    var engine: String,
+    var color: Color,
+    var imageUri: Uri? = null
 ) : Parcelable {
     companion object {
         const val UNDEFINED_ID = -1
