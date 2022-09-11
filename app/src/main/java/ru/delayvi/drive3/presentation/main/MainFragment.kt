@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import ru.delayvi.drive3.R
 import ru.delayvi.drive3.databinding.ActivityMainBinding
 import ru.delayvi.drive3.databinding.FragmentMainBinding
@@ -46,14 +47,11 @@ class MainFragment : Fragment() {
 
 
         binding.buttonAddCar.setOnClickListener {
-            val fragment = CarFragment.newInstanceAddCar()
-            launchFragment(fragment)
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToCarFragment2(false))
         }
         carListAdapter.onClickListener = {
             viewModel.selectCar(it)
-        val fragment = CarFragment.newInstanceEditCar()
-        launchFragment(fragment)
-
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToCarFragment2(true))
         }
     }
     private fun setupRecyclerView() {
