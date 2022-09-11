@@ -25,7 +25,8 @@ object CarListRepositoryImpl : CarListRepository {
                 "Model $i",
                 "${Random.nextInt(100, 5000)}000",
                 "${Random.nextDouble(0.8, 6.0)}",
-                randomColor()
+                randomColor(),
+                "https://i.pinimg.com/originals/4d/cd/f2/4dcdf2392929013062ba79e14c240517.jpg"
             )
             addCar(car)
         }
@@ -64,7 +65,7 @@ object CarListRepositoryImpl : CarListRepository {
         updateLiveData()
     }
 
-    override fun selectCar(car: Car){
+    override fun selectCar(car: Car) {
         selectedCar.postValue(car)
     }
 
