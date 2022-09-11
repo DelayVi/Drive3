@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="ru.delayvi.drive3.presentation.main.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_carFragment2"
+            app:destination="@id/carFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/carFragment2"
+        android:name="ru.delayvi.drive3.presentation.car_fragment.CarFragment"
+        android:label="CarFragment" />
+</navigation>
