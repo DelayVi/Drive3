@@ -11,7 +11,7 @@ data class Car(
     var price: String,
     var engine: String,
     var color: Color,
-    var imageUri: Uri? = null,
+    var imageUri: String? = null,
     var id: Int = UNDEFINED_ID,
 ) : Parcelable {
     companion object {

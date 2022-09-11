@@ -1,7 +1,6 @@
 package ru.delayvi.drive3.presentation.car_fragment
 
 import android.os.Bundle
-import android.service.controls.templates.TemperatureControlTemplate.MODE_UNKNOWN
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +14,6 @@ class CarFragment : Fragment() {
 
     private lateinit var binding: FragmentCarBinding
     private val args by navArgs<CarFragmentArgs>()
-
     private val viewModel: CarFragmentViewModel by lazy {
         ViewModelProvider(this)[CarFragmentViewModel::class.java]
     }
