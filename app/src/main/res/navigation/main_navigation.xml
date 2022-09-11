@@ -15,5 +15,9 @@
     <fragment
         android:id="@+id/carFragment2"
         android:name="ru.delayvi.drive3.presentation.car_fragment.CarFragment"
-        android:label="CarFragment" />
+        android:label="CarFragment" >
+        <argument
+            android:name="screenModeEdit"
+            app:argType="boolean" />
+    </fragment>
 </navigation>
