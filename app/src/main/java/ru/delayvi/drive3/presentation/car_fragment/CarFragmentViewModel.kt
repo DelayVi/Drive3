@@ -22,27 +22,24 @@ class CarFragmentViewModel : ViewModel() {
     private val _readyToFinish = MutableLiveData<Unit>()
     val readyToFinish: LiveData<Unit> = _readyToFinish
 
-    private val _selectedCar = getSelectedCar.getSelectedCar()
+    private var _selectedCar = getSelectedCar.getSelectedCar()
     val selectedCar: LiveData<Car> = _selectedCar
 
-    fun addCar(brand: String, model: String){
-        val carAdd = Car(
-            brand,
-            model,
-            "10000rubasov",
-            "4.4twinTurbo",
-            Color.GREEN
-        )
+    fun addCar(car: Car){
+        val carAdd = car.copy(color = Color.GREEN)
         addCarUseCase.addCar(carAdd)
         editingFinished()
     }
 
-    fun editCar(brand: String, model: String) {
+    fun editCar(car: Car) {
         _selectedCar.value?.let {
-            val carCopy = it.copy(brand = brand, model = model)
-            editCarUseCase.editCar(carCopy)
+            editCarUseCase.editCar(car)
             editingFinished()
         }
+    }
+
+    fun clearSelectedCar(){
+        _selectedCar = MutableLiveData<Car>()
     }
 
 

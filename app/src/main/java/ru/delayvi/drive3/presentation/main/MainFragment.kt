@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import ru.delayvi.drive3.R
 import ru.delayvi.drive3.databinding.ActivityMainBinding
 import ru.delayvi.drive3.databinding.FragmentMainBinding
@@ -25,10 +27,6 @@ class MainFragment : Fragment() {
     }
 
     private var carListAdapter = CarListAdapter()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,23 +52,32 @@ class MainFragment : Fragment() {
             findNavController().navigate(MainFragmentDirections.actionMainFragmentToCarFragment2(true))
         }
     }
+
     private fun setupRecyclerView() {
         carListAdapter = CarListAdapter()
         binding.rvCar.adapter = carListAdapter
+        swipeToRemove(binding.rvCar)
     }
 
-    private fun launchFragment(fragment: CarFragment) {
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_car, fragment)
-            .addToBackStack(null)
-            .commit()
-    }
+    private fun swipeToRemove(recyclerView: RecyclerView) {
+        val callback = object : ItemTouchHelper.SimpleCallback(
+            0,
+            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+        ) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
 
-    companion object {
-
-
-        fun newInstance(): MainFragment {
-            return MainFragment()
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val item = carListAdapter.currentList[viewHolder.adapterPosition]
+                viewModel.deleteCar(item)
+            }
         }
+        val itemTouchHelper = ItemTouchHelper(callback)
+        itemTouchHelper.attachToRecyclerView(recyclerView)
     }
 }
