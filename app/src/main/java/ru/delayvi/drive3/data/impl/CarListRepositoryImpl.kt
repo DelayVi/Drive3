@@ -60,8 +60,14 @@ object CarListRepositoryImpl : CarListRepository {
 
     override fun editCar(car: Car) {
         val oldCar = selectedCar.value ?: throw RuntimeException("Car is empty")
+        val newCar = oldCar.copy(
+            brand = car.brand,
+            model = car.model,
+            price = car.price,
+            engine = car.engine
+        )
         deleteCar(oldCar)
-        addCar(car)
+        addCar(newCar)
         updateLiveData()
     }
 
