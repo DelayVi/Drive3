@@ -10,9 +10,15 @@ fun setPriceToViewHolder(textView: TextView, text: String){
 }
 
 @BindingAdapter("setEngineToViewHolder")
-fun setEngineToViewHolder(textView: TextView, volume: String){
-    textView.text = volume.take(3) + "L"
+fun setEngineToViewHolder(textView: TextView, volume: String?){
+    textView.text = volume?.take(3) + "L" ?: ""
 }
+
+@BindingAdapter("setEngineToCarFragment")
+fun setEngineToCarFragment(textView: TextView, volume: String?){
+    textView.text = volume?.take(3) ?: ""
+}
+
 
 @BindingAdapter("setColorToViewHolder")
 fun setColorToViewHolder(textView: TextView, color: Color){

@@ -45,11 +45,10 @@ class MainFragment : Fragment() {
 
 
         binding.buttonAddCar.setOnClickListener {
-            findNavController().navigate(MainFragmentDirections.actionMainFragmentToCarFragment2(false))
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToCarFragment2(false, null))
         }
         carListAdapter.onClickListener = {
-            viewModel.selectCar(it)
-            findNavController().navigate(MainFragmentDirections.actionMainFragmentToCarFragment2(true))
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToCarFragment2(true, it))
         }
     }
 

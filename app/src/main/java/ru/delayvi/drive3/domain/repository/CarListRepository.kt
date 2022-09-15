@@ -11,10 +11,8 @@ interface CarListRepository {
 
     fun editCar(car: Car)
 
-    fun selectCar(car:Car)
+    fun getCar(carId: Int): Car
 
-    fun getSelectedCar():LiveData<Car>
-
-    fun getCarList():LiveData<List<Car>>
+    fun getCarList(): LiveData<List<Car>>
 
 }

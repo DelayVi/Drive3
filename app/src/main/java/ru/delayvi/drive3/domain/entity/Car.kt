@@ -1,6 +1,5 @@
 package ru.delayvi.drive3.domain.entity
 
-import android.net.Uri
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
@@ -15,6 +14,6 @@ data class Car(
     var id: Int = UNDEFINED_ID,
 ) : Parcelable {
     companion object {
-        const val UNDEFINED_ID = -1
+        const val UNDEFINED_ID = 0
     }
 }

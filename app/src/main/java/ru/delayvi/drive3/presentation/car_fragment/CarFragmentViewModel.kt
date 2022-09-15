@@ -1,5 +1,7 @@
 package ru.delayvi.drive3.presentation.car_fragment
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,42 +10,47 @@ import ru.delayvi.drive3.domain.entity.Car
 import ru.delayvi.drive3.domain.entity.Color
 import ru.delayvi.drive3.domain.usecases.AddCarUseCase
 import ru.delayvi.drive3.domain.usecases.EditCarUseCase
-import ru.delayvi.drive3.domain.usecases.GetSelectedCar
+import ru.delayvi.drive3.domain.usecases.GetCarUseCase
 
-class CarFragmentViewModel : ViewModel() {
-    private val repository = CarListRepositoryImpl
+class CarFragmentViewModel(application: Application) : AndroidViewModel(application) {
+
+    private val repository = CarListRepositoryImpl(application)
 
     private val addCarUseCase = AddCarUseCase(repository)
     private val editCarUseCase = EditCarUseCase(repository)
-    private val getSelectedCar = GetSelectedCar(repository)
-
-
+    private val getCarUseCase = GetCarUseCase(repository)
 
     private val _readyToFinish = MutableLiveData<Unit>()
     val readyToFinish: LiveData<Unit> = _readyToFinish
 
-    private var _selectedCar = getSelectedCar.getSelectedCar()
-    val selectedCar: LiveData<Car> = _selectedCar
 
-    fun addCar(car: Car){
+    fun addCar(car: Car) {
         val carAdd = car.copy(color = Color.GREEN)
         addCarUseCase.addCar(carAdd)
         editingFinished()
     }
 
     fun editCar(car: Car) {
-        _selectedCar.value?.let {
-            editCarUseCase.editCar(car)
-            editingFinished()
-        }
+        val oldCar = getCar(car)
+        val newCar = oldCar.copy(
+            brand = car.brand,
+            model = car.model,
+            price = car.price,
+            engine = car.engine,
+            color = car.color,
+            imageUri = car.imageUri
+        )
+        editCarUseCase.editCar(newCar)
+        editingFinished()
+
     }
 
-    fun clearSelectedCar(){
-        _selectedCar = MutableLiveData<Car>()
+    fun getCar(car: Car): Car {
+        return getCarUseCase.getCar(car.id)
     }
 
 
-    private fun editingFinished(){
+    private fun editingFinished() {
         _readyToFinish.value = Unit
     }
 
