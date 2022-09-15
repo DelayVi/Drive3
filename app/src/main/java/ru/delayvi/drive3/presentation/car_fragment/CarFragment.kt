@@ -36,21 +36,20 @@ class CarFragment : Fragment() {
         viewModel.readyToFinish.observe(viewLifecycleOwner) {
             requireActivity().onBackPressed()
         }
+        args.car?.let { entryParams(it) }
         if (args.screenModeEdit) {
-            binding.viewModel = viewModel
             binding.lifecycleOwner = viewLifecycleOwner
-            viewModel.selectedCar.observe(viewLifecycleOwner) {
-                entryParams(it)
-                binding.saveButton.setOnClickListener {
-                    viewModel.editCar(saveParamsCar())
-                }
+            binding.saveButton.setOnClickListener {
+                viewModel.editCar(saveParamsCar())
             }
         } else {
             binding.saveButton.setOnClickListener {
                 viewModel.addCar(saveParamsCar())
             }
+
         }
     }
+
 
     private fun saveParamsCar(): Car {
         return with(binding) {
@@ -59,15 +58,19 @@ class CarFragment : Fragment() {
                 etModel.text.toString(),
                 etPrice.text.toString(),
                 etEngine.text.toString(),
-                Color.WHITE
+                Color.WHITE,
+            "https://www.allcarz.ru/wp-content/uploads/2016/09/foto-s5-sp-ii_01.jpg"
             )
         }
     }
 
     private fun entryParams(car: Car) {
+        binding.car = args.car
         Picasso.get()
             .load(car.imageUri)
             .placeholder(R.drawable.ic_launcher_background)
             .into(binding.ivCar)
     }
+
+
 }

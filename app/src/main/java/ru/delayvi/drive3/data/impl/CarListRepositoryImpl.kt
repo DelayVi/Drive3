@@ -1,94 +1,59 @@
 package ru.delayvi.drive3.data.impl
 
+import android.app.Application
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
+import ru.delayvi.drive3.data.database.AppDatabase
+import ru.delayvi.drive3.data.database.CarDbModel
+import ru.delayvi.drive3.data.database.CarMapper
 import ru.delayvi.drive3.domain.entity.Car
 import ru.delayvi.drive3.domain.repository.CarListRepository
 import kotlin.random.Random
 
-object CarListRepositoryImpl : CarListRepository {
+class CarListRepositoryImpl(
+    application: Application
+) : CarListRepository {
 
-    private const val AUTO_INCREMENT_ID = 0
+    private val carDao = AppDatabase.getInstance(application).carDao()
+    private val mapper = CarMapper()
 
 
-    private val carList = sortedSetOf<Car>({ p0, p1 -> p0.id.compareTo(p1.id) })
-    private val carListLiveData = MutableLiveData<List<Car>>()
-
-    private val selectedCar = MutableLiveData<Car>()
-
-    private var autoIncrementId = AUTO_INCREMENT_ID
-
-    init {
-        for (i in 0 until 30) {
-            val car = Car(
-                "Brand $i",
-                "Model $i",
-                "${Random.nextInt(100, 5000)}000",
-                "${Random.nextDouble(0.8, 6.0)}",
-                randomColor(),
-                "https://i.pinimg.com/originals/4d/cd/f2/4dcdf2392929013062ba79e14c240517.jpg"
-            )
-            addCar(car)
-        }
-    }
-
-    private fun randomColor(): ru.delayvi.drive3.domain.entity.Color {
-        return when (Random.nextInt(0, 5)) {
-            0 -> ru.delayvi.drive3.domain.entity.Color.BLACK
-            1 -> ru.delayvi.drive3.domain.entity.Color.BLUE
-            2 -> ru.delayvi.drive3.domain.entity.Color.RED
-            3 -> ru.delayvi.drive3.domain.entity.Color.WHITE
-            4 -> ru.delayvi.drive3.domain.entity.Color.GREEN
-            else -> {
-                throw RuntimeException("Unknown color")
-            }
-        }
-    }
 
     override fun addCar(car: Car) {
-        if (car.id == Car.UNDEFINED_ID) {
-            car.id = autoIncrementId++
-        }
-        carList.add(car)
-        updateLiveData()
+        carDao.addCar(mapper.mapEntityToDbModel(car))
     }
 
     override fun deleteCar(car: Car) {
-        carList.remove(car)
-        updateLiveData()
+        carDao.deleteCar(car.id)
     }
 
     override fun editCar(car: Car) {
-        val oldCar = selectedCar.value ?: throw RuntimeException("Car is empty")
-        val newCar = oldCar.copy(
-            brand = car.brand,
-            model = car.model,
-            price = car.price,
-            engine = car.engine
-        )
-        deleteCar(oldCar)
-        addCar(newCar)
-        updateLiveData()
+        carDao.addCar(mapper.mapEntityToDbModel(car))
     }
 
-    override fun selectCar(car: Car) {
-        selectedCar.postValue(car)
-    }
-
-    override fun getSelectedCar(): LiveData<Car> {
-        return selectedCar
+    override fun getCar(carId: Int): Car {
+       var car = carDao.getCar(carId)
+        return mapper.mapDbModelToEntity(car)
     }
 
 
-    override fun getCarList(): LiveData<List<Car>> {
-        updateLiveData()
-        return carListLiveData
+    override fun getCarList(): LiveData<List<Car>> = Transformations.map(carDao.getCarList()){
+        mapper.mapDbModelListToEntityList(it)
     }
 
+//    override fun getCarList(): LiveData<List<Car>> = MediatorLiveData<List<Car>>().apply {
+//        addSource(carDao.getCarList()){
+//            postValue(mapper.mapDbModelListToEntityList(it))
+//        }
+//    }
 
-    private fun updateLiveData() {
-        carListLiveData.postValue(carList.toList())
-    }
 
+//    override fun getCarList(): LiveData<List<Car>> {
+//        var carList = MutableLiveData<List<Car>>()
+//        carList.value = carDao.getCarList().value?.let { mapper.mapDbModelListToEntityList(it) }
+//        return carList
+//    }
 
 }
