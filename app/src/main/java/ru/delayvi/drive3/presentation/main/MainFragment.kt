@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.delayvi.drive3.R
 import ru.delayvi.drive3.databinding.ActivityMainBinding
 import ru.delayvi.drive3.databinding.FragmentMainBinding
+import ru.delayvi.drive3.domain.entity.Car
 import ru.delayvi.drive3.presentation.car_fragment.CarFragment
 import ru.delayvi.drive3.presentation.recycler_view.CarListAdapter
 
@@ -45,10 +46,10 @@ class MainFragment : Fragment() {
 
 
         binding.buttonAddCar.setOnClickListener {
-            findNavController().navigate(MainFragmentDirections.actionMainFragmentToCarFragment2(false, null))
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToCarFragment2(CarFragment.ID_SCREEN_MODE_ADD))
         }
         carListAdapter.onClickListener = {
-            findNavController().navigate(MainFragmentDirections.actionMainFragmentToCarFragment2(true, it))
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToCarFragment2(it.id))
         }
     }
 

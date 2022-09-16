@@ -17,11 +17,7 @@
         android:name="ru.delayvi.drive3.presentation.car_fragment.CarFragment"
         android:label="CarFragment" >
         <argument
-            android:name="screenModeEdit"
-            app:argType="boolean" />
-        <argument
-            android:name="car"
-            app:argType="ru.delayvi.drive3.domain.entity.Car"
-            app:nullable="true" />
+            android:name="CarID"
+            app:argType="integer" />
     </fragment>
 </navigation>

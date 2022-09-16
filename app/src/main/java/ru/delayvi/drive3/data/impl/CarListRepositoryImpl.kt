@@ -21,19 +21,19 @@ class CarListRepositoryImpl(
 
 
 
-    override fun addCar(car: Car) {
+    override suspend fun addCar(car: Car) {
         carDao.addCar(mapper.mapEntityToDbModel(car))
     }
 
-    override fun deleteCar(car: Car) {
+    override suspend fun deleteCar(car: Car) {
         carDao.deleteCar(car.id)
     }
 
-    override fun editCar(car: Car) {
+    override suspend fun editCar(car: Car) {
         carDao.addCar(mapper.mapEntityToDbModel(car))
     }
 
-    override fun getCar(carId: Int): Car {
+    override suspend fun getCar(carId: Int): Car {
        var car = carDao.getCar(carId)
         return mapper.mapDbModelToEntity(car)
     }
