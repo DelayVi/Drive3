@@ -23,6 +23,10 @@ class CarFragment : Fragment() {
         ViewModelProvider(this)[CarFragmentViewModel::class.java]
     }
 
+    companion object{
+        const val ID_SCREEN_MODE_ADD = -1
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,8 +40,8 @@ class CarFragment : Fragment() {
         viewModel.readyToFinish.observe(viewLifecycleOwner) {
             requireActivity().onBackPressed()
         }
-        args.car?.let { entryParams(it) }
-        if (args.screenModeEdit) {
+        if (args.carID != ID_SCREEN_MODE_ADD) {
+            entryParams(args.carID)
             binding.lifecycleOwner = viewLifecycleOwner
             binding.saveButton.setOnClickListener {
                 viewModel.editCar(saveParamsCar())
@@ -64,13 +68,14 @@ class CarFragment : Fragment() {
         }
     }
 
-    private fun entryParams(car: Car) {
-        binding.car = args.car
-        Picasso.get()
-            .load(car.imageUri)
-            .placeholder(R.drawable.ic_launcher_background)
-            .into(binding.ivCar)
+    private fun entryParams(carID: Int) {
+            viewModel.getCar(carID)
+            binding.viewModel = viewModel
+            viewModel.carItem.observe(viewLifecycleOwner){
+                Picasso.get()
+                    .load(it.imageUri)
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .into(binding.ivCar)
+            }
     }
-
-
 }

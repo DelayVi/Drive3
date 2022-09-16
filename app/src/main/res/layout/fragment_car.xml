@@ -5,15 +5,15 @@
 
     <data>
         <variable
-            name="car"
-            type="ru.delayvi.drive3.domain.entity.Car" />
+            name="viewModel"
+            type="ru.delayvi.drive3.presentation.car_fragment.CarFragmentViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
-        tools:context=".presentation.main.MainActivity">
+        tools:context=".presentation.MainActivity">
 
         <ImageView
             android:id="@+id/ivCar"
@@ -46,7 +46,7 @@
                 android:layout_marginEnd="10dp"
                 android:hint="Brand:"
                 android:inputType="number|text"
-                android:text="@{car.brand}" />
+                android:text="@{viewModel.carItem.brand}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -67,7 +67,7 @@
                 android:layout_marginEnd="10dp"
                 android:hint="Model:"
                 android:inputType="number|text"
-                android:text="@{car.model}" />
+                android:text="@{viewModel.carItem.model}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -89,7 +89,7 @@
                 android:layout_marginEnd="5dp"
                 android:hint="Price:"
                 android:inputType="number"
-                android:text="@{car.price}" />
+                android:text="@{viewModel.carItem.price}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -110,7 +110,7 @@
                 android:layout_marginEnd="10dp"
                 android:hint="Engine volume:"
                 android:inputType="number"
-                app:setEngineToCarFragment="@{car.engine}" />
+                app:setEngineToCarFragment="@{viewModel.carItem.engine}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

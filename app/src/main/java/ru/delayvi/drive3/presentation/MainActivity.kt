@@ -1,4 +1,4 @@
-package ru.delayvi.drive3.presentation.main
+package ru.delayvi.drive3.presentation
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
