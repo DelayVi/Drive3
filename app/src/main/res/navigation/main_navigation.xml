@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="ru.delayvi.drive3.presentation.main_fragment.MainFragment"
-        android:label="MainFragment" >
+        android:label="MainFragment">
         <action
             android:id="@+id/action_mainFragment_to_carFragment2"
             app:destination="@id/carFragment" />
@@ -15,7 +15,7 @@
     <fragment
         android:id="@+id/carFragment"
         android:name="ru.delayvi.drive3.presentation.car_fragment.CarFragment"
-        android:label="CarFragment" >
+        android:label="CarFragment">
         <argument
             android:name="CarID"
             app:argType="integer" />
