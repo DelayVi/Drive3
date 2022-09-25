@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="carProperties"
             type="ru.delayvi.drive3.domain.entity.Car" />
     </data>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
 android:layout_height="wrap_content">
 
 <androidx.cardview.widget.CardView
@@ -86,28 +86,28 @@ android:layout_height="wrap_content">
 
 </androidx.cardview.widget.CardView>
 
-<androidx.cardview.widget.CardView
-    android:id="@+id/cardView2"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    android:layout_marginStart="175dp"
-    android:layout_marginEnd="5dp"
-    android:background="#CDCDCD"
-    app:cardBackgroundColor="#CDCDCD"
-    app:cardCornerRadius="6dp"
-    app:layout_constraintBottom_toBottomOf="@+id/cardView"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="@+id/cardView"
-    app:layout_constraintVertical_bias="0.0">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginEnd="5dp"
+        android:background="#CDCDCD"
+        app:cardBackgroundColor="#CDCDCD"
+        app:cardCornerRadius="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cardView"
+        app:layout_constraintVertical_bias="0.0">
 
-    <ImageView
-        android:id="@+id/carImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        app:srcCompat="@color/black" />
+        <ImageView
+            android:id="@+id/carImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@color/black" />
 
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
    </layout>

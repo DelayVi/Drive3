@@ -1,30 +1,43 @@
 package ru.delayvi.drive3.presentation.car_fragment
 
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.squareup.picasso.Picasso
 import ru.delayvi.drive3.R
 import ru.delayvi.drive3.databinding.FragmentCarBinding
+import ru.delayvi.drive3.di.DaggerAppComponent
 import ru.delayvi.drive3.domain.entity.Car
 import ru.delayvi.drive3.domain.entity.Color
+import javax.inject.Inject
 
 class CarFragment : Fragment() {
 
     private lateinit var binding: FragmentCarBinding
     private val args by navArgs<CarFragmentArgs>()
+    @Inject
+    lateinit var viewModelFactory: CarFragmentViewModelFactory
+
     private val viewModel: CarFragmentViewModel by lazy {
-        ViewModelProvider(this)[CarFragmentViewModel::class.java]
+        ViewModelProvider(this, viewModelFactory)[CarFragmentViewModel::class.java]
+    }
+
+    private val appComponent by lazy {
+       DaggerAppComponent.factory().create(requireActivity().application)
     }
 
     companion object{
         const val ID_SCREEN_MODE_ADD = -1
+    }
+
+    override fun onAttach(context: Context) {
+        appComponent.inject(this)
+        super.onAttach(context)
     }
 
     override fun onCreateView(

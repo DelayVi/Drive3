@@ -10,9 +10,10 @@ import ru.delayvi.drive3.data.database.CarDbModel
 import ru.delayvi.drive3.data.database.CarMapper
 import ru.delayvi.drive3.domain.entity.Car
 import ru.delayvi.drive3.domain.repository.CarListRepository
+import javax.inject.Inject
 import kotlin.random.Random
 
-class CarListRepositoryImpl(
+class CarListRepositoryImpl @Inject constructor(
     application: Application
 ) : CarListRepository {
 
