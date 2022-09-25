@@ -1,26 +1,22 @@
 package ru.delayvi.drive3.presentation.car_fragment
 
-import android.app.Application
 import android.util.Log
-import androidx.lifecycle.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.cancel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import ru.delayvi.drive3.data.impl.CarListRepositoryImpl
 import ru.delayvi.drive3.domain.entity.Car
 import ru.delayvi.drive3.domain.entity.Color
 import ru.delayvi.drive3.domain.usecases.AddCarUseCase
 import ru.delayvi.drive3.domain.usecases.EditCarUseCase
 import ru.delayvi.drive3.domain.usecases.GetCarUseCase
 
-class CarFragmentViewModel(application: Application) : AndroidViewModel(application) {
-
-    private val repository = CarListRepositoryImpl(application)
-
-    private val addCarUseCase = AddCarUseCase(repository)
-    private val editCarUseCase = EditCarUseCase(repository)
-    private val getCarUseCase = GetCarUseCase(repository)
+class CarFragmentViewModel(
+    private val addCarUseCase: AddCarUseCase,
+    private val editCarUseCase: EditCarUseCase,
+    private val getCarUseCase: GetCarUseCase
+) : ViewModel() {
 
     private val _readyToFinish = MutableLiveData<Unit>()
     val readyToFinish: LiveData<Unit> = _readyToFinish
@@ -31,7 +27,7 @@ class CarFragmentViewModel(application: Application) : AndroidViewModel(applicat
     fun addCar(car: Car) {
         viewModelScope.launch {
             val carAdd = car.copy(color = Color.GREEN)
-            addCarUseCase.addCar(carAdd)
+            addCarUseCase(carAdd)
             editingFinished()
         }
     }
@@ -47,14 +43,14 @@ class CarFragmentViewModel(application: Application) : AndroidViewModel(applicat
                 color = car.color,
                 imageUri = car.imageUri
             )
-            newCar?.let { editCarUseCase.editCar(it) }
+            newCar?.let { editCarUseCase(it) }
             editingFinished()
         }
     }
 
     fun getCar(carId: Int) {
         viewModelScope.launch{
-            val getCar = getCarUseCase.getCar(carId)
+            val getCar = getCarUseCase(carId)
             _carItem.value = getCar
             Log.d("MyLog", "getCar")
         }
