@@ -1,4 +1,4 @@
-package ru.delayvi.drive3.presentation.main
+package ru.delayvi.drive3.presentation.main_fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

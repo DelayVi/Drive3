@@ -1,10 +1,10 @@
 package ru.delayvi.drive3.domain.usecases
 
-import ru.delayvi.drive3.domain.entity.Car
 import ru.delayvi.drive3.domain.repository.CarListRepository
+import javax.inject.Inject
 
-class GetCarUseCase(private val carListRepository: CarListRepository) {
-    suspend fun getCar(carId: Int): Car {
-       return carListRepository.getCar(carId)
-    }
+class GetCarUseCase @Inject constructor(
+    private val carListRepository: CarListRepository
+    ) {
+    suspend operator fun invoke(carId: Int) = carListRepository.getCar(carId)
 }

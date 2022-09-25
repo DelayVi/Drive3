@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="ru.delayvi.drive3.presentation.main.MainFragment"
+        android:name="ru.delayvi.drive3.presentation.main_fragment.MainFragment"
         android:label="MainFragment" >
         <action
             android:id="@+id/action_mainFragment_to_carFragment2"
