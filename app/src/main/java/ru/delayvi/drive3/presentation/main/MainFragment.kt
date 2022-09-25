@@ -1,6 +1,7 @@
 package ru.delayvi.drive3.presentation.main
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,7 @@ import ru.delayvi.drive3.databinding.FragmentMainBinding
 import ru.delayvi.drive3.domain.entity.Car
 import ru.delayvi.drive3.presentation.car_fragment.CarFragment
 import ru.delayvi.drive3.presentation.recycler_view.CarListAdapter
+import java.lang.Exception
 
 class MainFragment : Fragment() {
 
