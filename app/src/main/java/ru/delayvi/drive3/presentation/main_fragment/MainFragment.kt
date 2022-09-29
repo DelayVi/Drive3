@@ -55,12 +55,8 @@ class MainFragment : Fragment() {
             carListAdapter.submitList(it)
         }
 
-
-        binding.buttonAddCar.setOnClickListener {
-            findNavController().navigate(MainFragmentDirections.actionMainFragmentToCarFragment2(CarFragment.ID_SCREEN_MODE_ADD))
-        }
         carListAdapter.onClickListener = {
-            findNavController().navigate(MainFragmentDirections.actionMainFragmentToCarFragment2(it.id))
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToCarFragment())
         }
     }
 
@@ -90,5 +86,11 @@ class MainFragment : Fragment() {
         }
         val itemTouchHelper = ItemTouchHelper(callback)
         itemTouchHelper.attachToRecyclerView(recyclerView)
+    }
+    companion object {
+        fun newInstance(): MainFragment {
+            return MainFragment()
+        }
+
     }
 }

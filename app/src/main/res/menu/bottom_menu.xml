@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+    android:id="@+id/navigation_main"
+    android:icon="@drawable/ic_baseline_search_24"
+    android:title="Поиск"/>
+    <item
+        android:id="@+id/navigation_favorite"
+        android:icon="@drawable/ic_baseline_favorites_24"
+        android:title="Избранное"/>
+    <item
+        android:id="@+id/navigation_car"
+        android:icon="@drawable/ic_baseline_add_24"
+        android:title="Добавить"/>
+    <item
+        android:id="@+id/navigation_message"
+        android:icon="@drawable/ic_baseline_message_24"
+        android:title="Сообщения"/>
+    <item
+        android:id="@+id/navigation_menu"
+        android:icon="@drawable/ic_baseline_menu_24"
+        android:title="Меню"/>
+</menu>
