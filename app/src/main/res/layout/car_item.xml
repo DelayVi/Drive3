@@ -12,79 +12,74 @@
     android:layout_width="match_parent"
 android:layout_height="wrap_content">
 
-<androidx.cardview.widget.CardView
-    android:id="@+id/cardView"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    android:background="#CDCDCD"
-    app:cardBackgroundColor="#CDCDCD"
-    app:cardCornerRadius="6dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="@+id/cardView2"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.0">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:backgroundTint="#CDCDCD"
+        app:cardBackgroundColor="#CDCDCD"
+        app:cardCornerRadius="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/cardView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="5dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tvBrand"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#CDCDCD"
-            android:text="@{carProperties.brand}"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvModel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#CDCDCD"
-            android:text="@{carProperties.model}"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvBrand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{carProperties.brand}"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvPrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#CDCDCD"
-            app:setPriceToViewHolder="@{carProperties.price}"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvModel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{carProperties.model}"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvEngine"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#CDCDCD"
-            app:setEngineToViewHolder="@{carProperties.engine}"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:setPriceToViewHolder="@{carProperties.price}" />
 
-        <TextView
-            android:id="@+id/tvColor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#CDCDCD"
-            app:setColorToViewHolder="@{carProperties.color}"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvEngine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:setEngineToViewHolder="@{carProperties.engine}" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tvColor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:setColorToViewHolder="@{carProperties.color}" />
 
-</androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"

@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/navigation_main">
 
     <fragment
-        android:id="@+id/mainFragment"
+        android:id="@+id/navigation_favorite"
+        android:name="ru.delayvi.drive3.FavoriteFragment"
+        android:label="@string/fragment_favorite"
+        tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/navigation_message"
+        android:name="ru.delayvi.drive3.MessageFragment"
+        android:label="@string/fragment_message"
+        tools:layout="@layout/fragment_message" />
+    <fragment
+        android:id="@+id/navigation_menu"
+        android:name="ru.delayvi.drive3.Menu_Fragment"
+        android:label="@string/fragment_menu"
+        tools:layout="@layout/fragment_menu" />
+    <fragment
+        android:id="@+id/navigation_main"
         android:name="ru.delayvi.drive3.presentation.main_fragment.MainFragment"
-        android:label="MainFragment">
+        android:label="MainFragment" >
         <action
-            android:id="@+id/action_mainFragment_to_carFragment2"
-            app:destination="@id/carFragment" />
+            android:id="@+id/action_mainFragment_to_carFragment"
+            app:destination="@id/navigation_car" />
     </fragment>
     <fragment
-        android:id="@+id/carFragment"
+        android:id="@+id/navigation_car"
         android:name="ru.delayvi.drive3.presentation.car_fragment.CarFragment"
-        android:label="CarFragment">
-        <argument
-            android:name="CarID"
-            app:argType="integer" />
-    </fragment>
+        android:label="CarFragment" />
 </navigation>
