@@ -1,4 +1,4 @@
-package ru.delayvi.drive3
+package ru.delayvi.drive3.presentation.menu_fragment
 
 import androidx.lifecycle.ViewModel
 

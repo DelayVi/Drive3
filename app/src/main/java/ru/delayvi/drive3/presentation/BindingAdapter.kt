@@ -2,6 +2,7 @@ package ru.delayvi.drive3.presentation
 
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import ru.delayvi.drive3.domain.entity.Car
 import ru.delayvi.drive3.domain.entity.Color
 
 @BindingAdapter("setPriceToViewHolder")
@@ -11,12 +12,17 @@ fun setPriceToViewHolder(textView: TextView, text: String){
 
 @BindingAdapter("setEngineToViewHolder")
 fun setEngineToViewHolder(textView: TextView, volume: String?){
-    textView.text = volume?.take(3) + "L" ?: ""
+    textView.text = (volume?.take(3) + "L  AT AWD Luxury") ?: ""
 }
 
 @BindingAdapter("setEngineToCarFragment")
 fun setEngineToCarFragment(textView: TextView, volume: String?){
     textView.text = volume?.take(3) ?: ""
+}
+
+@BindingAdapter("getNameFromBrandAndModel")
+fun getNameFromBrandAndModel(textView: TextView, car: Car){
+    textView.text = "${car.brand} ${car.model}"
 }
 
 

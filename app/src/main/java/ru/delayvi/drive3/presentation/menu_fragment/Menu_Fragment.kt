@@ -1,4 +1,4 @@
-package ru.delayvi.drive3
+package ru.delayvi.drive3.presentation.menu_fragment
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import ru.delayvi.drive3.R
 
 class Menu_Fragment : Fragment() {
 

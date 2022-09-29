@@ -56,7 +56,7 @@ class MainFragment : Fragment() {
         }
 
         carListAdapter.onClickListener = {
-            findNavController().navigate(MainFragmentDirections.actionMainFragmentToCarFragment())
+      //      findNavController().navigate(MainFragmentDirections.actionNavigationMainToNavigationCar())
         }
     }
 

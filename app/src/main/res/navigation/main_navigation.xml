@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/navigation_favorite"
-        android:name="ru.delayvi.drive3.FavoriteFragment"
+        android:name="ru.delayvi.drive3.presentation.favorite_fragment.FavoriteFragment"
         android:label="@string/fragment_favorite"
         tools:layout="@layout/fragment_favorite" />
     <fragment
         android:id="@+id/navigation_message"
-        android:name="ru.delayvi.drive3.MessageFragment"
+        android:name="ru.delayvi.drive3.presentation.message_fragment.MessageFragment"
         android:label="@string/fragment_message"
         tools:layout="@layout/fragment_message" />
     <fragment
         android:id="@+id/navigation_menu"
-        android:name="ru.delayvi.drive3.Menu_Fragment"
+        android:name="ru.delayvi.drive3.presentation.menu_fragment.Menu_Fragment"
         android:label="@string/fragment_menu"
         tools:layout="@layout/fragment_menu" />
     <fragment
@@ -25,11 +25,27 @@
         android:name="ru.delayvi.drive3.presentation.main_fragment.MainFragment"
         android:label="MainFragment" >
         <action
-            android:id="@+id/action_mainFragment_to_carFragment"
-            app:destination="@id/navigation_car" />
+            android:id="@+id/action_navigation_main_to_navigation_show_car"
+            app:destination="@id/navigation_show_car" />
     </fragment>
     <fragment
         android:id="@+id/navigation_car"
         android:name="ru.delayvi.drive3.presentation.car_fragment.CarFragment"
-        android:label="CarFragment" />
+        android:label="CarFragment" >
+        <action
+            android:id="@+id/action_navigation_car_to_navigation_show_car"
+            app:destination="@id/navigation_show_car" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_show_car"
+        android:name="ru.delayvi.drive3.presentation.show_car_fragment.ShowCarFragment"
+        android:label="fragment_show_car"
+        tools:layout="@layout/fragment_show_car" >
+        <action
+            android:id="@+id/action_navigation_show_car_to_navigation_car"
+            app:destination="@id/navigation_car" />
+        <argument
+            android:name="CarId"
+            app:argType="integer" />
+    </fragment>
 </navigation>
