@@ -2,6 +2,7 @@ package ru.delayvi.drive3.presentation.main_fragment
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,7 +57,7 @@ class MainFragment : Fragment() {
         }
 
         carListAdapter.onClickListener = {
-      //      findNavController().navigate(MainFragmentDirections.actionNavigationMainToNavigationCar())
+            Log.d("MyLog", it.toString())
         }
     }
 

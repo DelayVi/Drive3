@@ -16,118 +16,158 @@
         android:translationZ="10dp">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
+            Of="parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="#CDCDCD"
-            app:cardCornerRadius="25dp"
-            app:cardUseCompatPadding="false"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tvName"
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:textStyle="normal"
-                    app:getNameFromBrandAndModel="@{carProperties}"
-                    app:layout_constraintBottom_toBottomOf="@+id/ivFavorite"
-                    app:layout_constraintEnd_toStartOf="@+id/ivFavorite"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/ivFavorite" />
-
-                <TextView
-                    android:id="@+id/tvEngine"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:textSize="12sp"
-                    android:textStyle="normal"
-                    app:layout_constraintEnd_toEndOf="@+id/tvName"
-                    app:layout_constraintStart_toStartOf="@+id/tvName"
-                    app:layout_constraintTop_toBottomOf="@+id/tvName"
-                    app:setEngineToViewHolder="@{carProperties.engine}" />
-
-                <ImageView
-                    android:id="@+id/ivFavorite"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_margin="8dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_baseline_favorites_24" />
-
-                <TextView
-                    android:id="@+id/tvPrice"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="1dp"
-                    android:textColor="#000000"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/tvEngine"
-                    app:layout_constraintStart_toStartOf="@+id/tvEngine"
-                    app:layout_constraintTop_toBottomOf="@+id/tvEngine"
-                    app:setPriceToViewHolder="@{carProperties.price}" />
-
-                <TextView
-                    android:id="@+id/tvModel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginBottom="3dp"
-                    android:text=" бензин, АКПП, 100 тыс.км."
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="normal"
-                    app:layout_constraintBottom_toBottomOf="@+id/tvColor"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/tvColor"
-                    app:layout_constraintTop_toTopOf="@+id/tvColor"
-                    app:layout_constraintVertical_bias="0.0" />
-
-                <TextView
-                    android:id="@+id/tvColor"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="7dp"
                     android:layout_marginBottom="8dp"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="normal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/tvPrice"
-                    app:layout_constraintTop_toBottomOf="@+id/carImage"
-                    app:layout_constraintVertical_bias="0.0"
-                    app:setColorToViewHolder="@{carProperties.color}" />
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="90"
+                        android:fontFamily="@font/calibri"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:getNameFromBrandAndModel="@{carProperties}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="10"
+                        android:background="@drawable/light_orange_rounded_shape"
+                        android:drawableLeft="@drawable/ic_star_yellow_24dp"
+                        android:fontFamily="@font/calibri"
+                        android:padding="6dp"
+                        android:text="4.5"
+                        android:textAlignment="textEnd"
+                        android:textColor="#ffc32d"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/calibri"
+                    android:text="2019 • COMFORT CLASS"
+                    android:textColor="#a4a7b5"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16sp"
+                        android:layout_marginRight="4dp"
+                        android:src="@drawable/seat_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="6dp"
+                        android:fontFamily="@font/calibri"
+                        android:text="5"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16sp"
+                        android:layout_marginRight="4dp"
+                        android:src="@drawable/gate_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="6dp"
+                        android:fontFamily="@font/calibri"
+                        android:text="4"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16sp"
+                        android:layout_marginRight="4dp"
+                        android:src="@drawable/bag_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="6dp"
+                        android:fontFamily="@font/calibri"
+                        android:text="3"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
 
                 <ImageView
                     android:id="@+id/carImage"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_margin="5dp"
-                    android:background="@android:drawable/dialog_holo_light_frame"
+                    android:layout_height="160dp"
+                    android:layout_marginBottom="8dp"
                     android:scaleType="centerCrop"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvPrice"
-                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                    android:src="@drawable/bmw_car_img" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/calibri"
+                        android:textColor="@color/red"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        app:setPriceToViewHolder="@{carProperties.price}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/blue_rounded_shape"
+                        android:fontFamily="@font/calibri"
+                        android:padding="8dp"
+                        android:text="Book Now"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
         </androidx.cardview.widget.CardView>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

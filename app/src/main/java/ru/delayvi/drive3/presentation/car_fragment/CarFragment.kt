@@ -1,24 +1,31 @@
 package ru.delayvi.drive3.presentation.car_fragment
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.navArgs
+import com.google.firebase.FirebaseApp
+import com.google.firebase.appcheck.FirebaseAppCheck
+import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import com.squareup.picasso.Picasso
 import ru.delayvi.drive3.R
 import ru.delayvi.drive3.databinding.FragmentCarBinding
 import ru.delayvi.drive3.di.DaggerAppComponent
 import ru.delayvi.drive3.domain.entity.Car
 import ru.delayvi.drive3.domain.entity.Color
+import java.io.ByteArrayOutputStream
 import javax.inject.Inject
-import kotlin.properties.Delegates
+
 
 class CarFragment : Fragment() {
 
@@ -88,6 +95,7 @@ class CarFragment : Fragment() {
         binding.ivCar.setOnClickListener {
             getContent.launch("image/*")
         }
+
     }
 
 
@@ -98,14 +106,37 @@ class CarFragment : Fragment() {
             val price = etPrice.text.toString()
             val engine = etEngine.text.toString()
             if (carImageUri == null) carImageUri = "${BASE_IMAGE_URL}make=$name&modelFamily=$model"
+            Log.d("MyLog", carImageUri.toString())
             return Car(
                 name, model, price, engine, Color.WHITE, carImageUri
             )
         }
     }
 
-    private fun placePhoto(uri: String) {
+    fun placePhoto(uri: String) {
         Picasso.get().load(uri).placeholder(R.drawable.ic_launcher_foreground).into(binding.ivCar)
+    }
+
+    private fun uploadImage() {
+            val bitmap = (binding.ivCar.drawable as BitmapDrawable).bitmap
+            val baos = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+            val data = baos.toByteArray()
+            val storageRef = Firebase.storage.reference
+            val carImageRef = storageRef.child("cars/car666")
+            val uploadTask = carImageRef.putBytes(data)
+            uploadTask.continueWithTask { task ->
+                if (!task.isSuccessful) {
+                    task.exception?.let {
+                        throw it
+                    }
+                }
+                carImageRef.downloadUrl
+            }.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Log.d("MyLog", "${task.result.toString()}")
+                }
+            }
     }
 
     private fun entryParams(carID: Int) {

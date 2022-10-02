@@ -8,6 +8,7 @@ import ru.delayvi.drive3.presentation.car_fragment.CarFragmentViewModelFactory
 import ru.delayvi.drive3.presentation.main_fragment.MainViewModel
 import ru.delayvi.drive3.presentation.main_fragment.MainViewModelFactory
 
+
 @Module(includes = [AppBindsModule::class])
 class AppModule {
 
