@@ -7,7 +7,7 @@ import ru.delayvi.drive3.domain.entity.Color
 
 @BindingAdapter("setPriceToViewHolder")
 fun setPriceToViewHolder(textView: TextView, text: String){
-    textView.text = "$text RUB"
+    textView.text = "$text ₽"
 }
 
 @BindingAdapter("setEngineToViewHolder")
@@ -22,7 +22,8 @@ fun setEngineToCarFragment(textView: TextView, volume: String?){
 
 @BindingAdapter("getNameFromBrandAndModel")
 fun getNameFromBrandAndModel(textView: TextView, car: Car){
-    textView.text = "${car.brand} ${car.model}"
+    textView.text = "${car.brand.substring(0,1).uppercase()}${car.brand.substring(1)} " +
+            "${car.model.substring(0,1).uppercase()}${car.model.substring(1)}"
 }
 
 

@@ -34,7 +34,7 @@
                     android:layout_height="250dp"
                     android:layout_marginBottom="15dp"
                     android:scaleType="centerCrop"
-                    tools:src="@tools:sample/avatars" />
+                    tools:src="@tools:sample/backgrounds/scenic" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilBrand"
@@ -51,6 +51,24 @@
                         android:hint="Brand:"
                         android:inputType="textCapWords"
                         android:text="@{viewModel.carItem.brand}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilModel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etModel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:hint="Model:"
+                        android:inputType="textCapWords"
+                        android:text="@{viewModel.carItem.model}" />
+
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -85,24 +103,6 @@
                         android:hint="Engine volume:"
                         android:inputType="numberDecimal"
                         app:setEngineToCarFragment="@{viewModel.carItem.engine}" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tilModel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="15dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etModel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:hint="Model:"
-                        android:inputType="textCapWords"
-                        android:text="@{viewModel.carItem.model}" />
-
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
