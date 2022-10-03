@@ -13,6 +13,9 @@ interface CarDao {
     @Query("SELECT * FROM cars")
     fun getCarList(): LiveData<List<CarDbModel>>
 
+    @Query("SELECT * FROM cars WHERE isFavorite")
+    fun getFavoriteCarList(): LiveData<List<CarDbModel>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addCar(carDbModel: CarDbModel)
 

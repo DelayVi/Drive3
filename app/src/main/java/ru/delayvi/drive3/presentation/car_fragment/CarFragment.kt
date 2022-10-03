@@ -23,6 +23,7 @@ import ru.delayvi.drive3.databinding.FragmentCarBinding
 import ru.delayvi.drive3.di.DaggerAppComponent
 import ru.delayvi.drive3.domain.entity.Car
 import ru.delayvi.drive3.domain.entity.Color
+import ru.delayvi.drive3.domain.entity.Fuel
 import java.io.ByteArrayOutputStream
 import javax.inject.Inject
 
@@ -108,7 +109,7 @@ class CarFragment : Fragment() {
             if (carImageUri == null) carImageUri = "${BASE_IMAGE_URL}make=$name&modelFamily=$model"
             Log.d("MyLog", carImageUri.toString())
             return Car(
-                name, model, price, engine, Color.WHITE, carImageUri
+                name, model, price, engine, Fuel.DIESEL, Color.WHITE, carImageUri, 2021
             )
         }
     }

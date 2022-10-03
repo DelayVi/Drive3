@@ -13,6 +13,10 @@ interface CarListRepository {
 
     suspend fun getCar(carId: Int): Car
 
+    suspend fun makeFavorite(carId: Int)
+
     fun getCarList(): LiveData<List<Car>>
+
+    fun getFavoriteCarList(): LiveData<List<Car>>
 
 }

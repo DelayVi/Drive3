@@ -1,5 +1,6 @@
 package ru.delayvi.drive3.presentation.recycler_view
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
@@ -22,6 +23,7 @@ class CarListAdapter() : ListAdapter<Car, CarViewHolder>(CarDiffUtilCallback()) 
         return CarViewHolder(binding)
     }
 
+    @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(viewHolder: CarViewHolder, position: Int) {
         val binding = viewHolder.binding
         val selectedCar = getItem(position)
@@ -30,6 +32,11 @@ class CarListAdapter() : ListAdapter<Car, CarViewHolder>(CarDiffUtilCallback()) 
             .load(selectedCar.imageUri)
             .placeholder(R.drawable.ic_launcher_background)
             .into(binding.carImage)
+        if (!selectedCar.isFavorite) {
+            binding.ivFavorite.setImageResource(R.drawable.ic_baseline_favorites_24)
+        } else {
+            binding.ivFavorite.setImageResource(R.drawable.ic_baseline_is_favorite_24)
+        }
         viewHolder.itemView.setOnClickListener {
             onClickListener?.invoke(selectedCar)
         }

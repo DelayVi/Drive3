@@ -57,7 +57,7 @@ class MainFragment : Fragment() {
         }
 
         carListAdapter.onClickListener = {
-            Log.d("MyLog", it.toString())
+            Log.d("MyLog", it.isFavorite.toString())
         }
     }
 
@@ -82,7 +82,7 @@ class MainFragment : Fragment() {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val item = carListAdapter.currentList[viewHolder.adapterPosition]
-                viewModel.deleteCar(item)
+                viewModel.makeFavorite(item.id)
             }
         }
         val itemTouchHelper = ItemTouchHelper(callback)
