@@ -1,17 +1,17 @@
-package ru.delayvi.drive3.presentation.main_fragment
+package ru.delayvi.drive3.presentation.favorite_fragment
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import ru.delayvi.drive3.domain.usecases.DeleteCarUseCase
 import ru.delayvi.drive3.domain.usecases.GetCarListUseCase
+import ru.delayvi.drive3.domain.usecases.GetFavoriteCarListUseCase
 import ru.delayvi.drive3.domain.usecases.MakeFavoriteUseCase
 import javax.inject.Inject
 
-class MainViewModelFactory @Inject constructor(
-    private val getCarListUseCase: GetCarListUseCase,
+class FavoriteViewModelFactory @Inject constructor(
+    private val getFavoriteCarListUseCase: GetFavoriteCarListUseCase,
     private val makeFavoriteUseCase: MakeFavoriteUseCase
 ): ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return MainViewModel(getCarListUseCase, makeFavoriteUseCase) as T
+        return FavoriteViewModel(getFavoriteCarListUseCase, makeFavoriteUseCase) as T
     }
 }

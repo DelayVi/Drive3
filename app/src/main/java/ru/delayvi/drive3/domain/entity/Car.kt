@@ -9,8 +9,12 @@ data class Car(
     var model: String,
     var price: String,
     var engine: String,
+    var fuel: Fuel,
     var color: Color,
     var imageUri: String? = null,
+    var year: Int,
+    var description: String = "",
+    var isFavorite: Boolean = false,
     var id: Int = UNDEFINED_ID,
 ) : Parcelable {
     companion object {

@@ -39,10 +39,21 @@ class CarListRepositoryImpl @Inject constructor(
         return mapper.mapDbModelToEntity(car)
     }
 
+    override suspend fun makeFavorite(carId: Int) {
+        var car = carDao.getCar(carId)
+        car.isFavorite = !car.isFavorite
+        carDao.addCar(car)
+    }
+
 
     override fun getCarList(): LiveData<List<Car>> = Transformations.map(carDao.getCarList()){
         mapper.mapDbModelListToEntityList(it)
     }
+
+    override fun getFavoriteCarList(): LiveData<List<Car>> = Transformations.map(carDao.getFavoriteCarList()){
+        mapper.mapDbModelListToEntityList(it)
+    }
+
 
 //    override fun getCarList(): LiveData<List<Car>> = MediatorLiveData<List<Car>>().apply {
 //        addSource(carDao.getCarList()){

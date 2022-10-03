@@ -5,6 +5,8 @@ import dagger.Provides
 import ru.delayvi.drive3.domain.usecases.*
 import ru.delayvi.drive3.presentation.car_fragment.CarFragmentViewModel
 import ru.delayvi.drive3.presentation.car_fragment.CarFragmentViewModelFactory
+import ru.delayvi.drive3.presentation.favorite_fragment.FavoriteViewModel
+import ru.delayvi.drive3.presentation.favorite_fragment.FavoriteViewModelFactory
 import ru.delayvi.drive3.presentation.main_fragment.MainViewModel
 import ru.delayvi.drive3.presentation.main_fragment.MainViewModelFactory
 
@@ -15,22 +17,44 @@ class AppModule {
     @Provides
     fun provideMainViewModel(
         getCarListUseCase: GetCarListUseCase,
-        deleteCarUseCase: DeleteCarUseCase
+        makeFavoriteUseCase: MakeFavoriteUseCase
     ): MainViewModel {
         return MainViewModel(
             getCarListUseCase,
-            deleteCarUseCase
+            makeFavoriteUseCase
         )
     }
 
     @Provides
     fun provideMainViewModelFactory(
         getCarListUseCase: GetCarListUseCase,
-        deleteCarUseCase: DeleteCarUseCase
+        makeFavoriteUseCase: MakeFavoriteUseCase
     ): MainViewModelFactory {
         return MainViewModelFactory(
             getCarListUseCase,
-            deleteCarUseCase
+            makeFavoriteUseCase
+        )
+    }
+
+    @Provides
+    fun provideFavoriteViewModel(
+        getFavoriteCarListUseCase: GetFavoriteCarListUseCase,
+        makeFavoriteUseCase: MakeFavoriteUseCase
+    ): FavoriteViewModel {
+        return FavoriteViewModel(
+            getFavoriteCarListUseCase,
+            makeFavoriteUseCase
+        )
+    }
+
+    @Provides
+    fun provideFavoriteViewModelFactory(
+        getFavoriteCarListUseCase: GetFavoriteCarListUseCase,
+        makeFavoriteUseCase: MakeFavoriteUseCase
+    ): FavoriteViewModelFactory {
+        return FavoriteViewModelFactory(
+            getFavoriteCarListUseCase,
+            makeFavoriteUseCase
         )
     }
 

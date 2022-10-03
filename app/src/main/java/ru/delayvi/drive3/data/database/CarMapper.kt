@@ -6,11 +6,11 @@ import ru.delayvi.drive3.domain.entity.Color
 class CarMapper {
 
     fun mapEntityToDbModel(car: Car) = with(car) {
-        CarDbModel(id, brand, model, price, engine, Color.WHITE, imageUri)
+        CarDbModel(id, brand, model, price, engine, fuel, Color.WHITE, imageUri, year, description, isFavorite)
     }
 
     fun mapDbModelToEntity(carDbModel: CarDbModel) = with(carDbModel) {
-        Car(brand, model, price, engine, color, imageUri, id)
+        Car(brand, model, price, engine, fuel, color, imageUri, year, description, isFavorite, id)
     }
 
     fun mapEntityListToDbModelList(list: List<Car>) = list.map { mapEntityToDbModel(it) }
