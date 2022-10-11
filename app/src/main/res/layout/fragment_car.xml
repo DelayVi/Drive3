@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="ru.delayvi.drive3.presentation.car_fragment.CarFragmentViewModel" />
+            type="ru.delayvi.drive3.presentation.screens.car_fragment.CarFragmentViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

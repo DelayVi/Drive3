@@ -1,4 +1,4 @@
-package ru.delayvi.drive3.presentation.car_fragment
+package ru.delayvi.drive3.presentation.screens.car_fragment
 
 import android.util.Log
 import androidx.lifecycle.LiveData

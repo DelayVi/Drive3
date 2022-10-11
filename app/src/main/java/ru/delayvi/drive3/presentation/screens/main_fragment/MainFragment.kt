@@ -1,8 +1,7 @@
-package ru.delayvi.drive3.presentation.main_fragment
+package ru.delayvi.drive3.presentation.screens.main_fragment
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,15 +12,14 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import ru.delayvi.drive3.databinding.FragmentMainBinding
 import ru.delayvi.drive3.di.DaggerAppComponent
-import ru.delayvi.drive3.presentation.car_fragment.CarFragment
 import ru.delayvi.drive3.presentation.recycler_view.CarListAdapter
 import javax.inject.Inject
 
-class MainFragment : Fragment() {
+class MainFragment() : Fragment() {
 
     private var _binding: FragmentMainBinding? = null
     private val binding: FragmentMainBinding
-        get() = _binding ?: throw RuntimeException("FragmentGameBinding == null")
+        get() = _binding ?: throw RuntimeException("FragmentMainBinding == null")
 
     @Inject
     lateinit var viewModelFactory: MainViewModelFactory
@@ -56,18 +54,23 @@ class MainFragment : Fragment() {
             carListAdapter.submitList(it)
         }
 
+
         carListAdapter.onClickListener = {
-            Log.d("MyLog", it.isFavorite.toString())
+            launchShowCarFragment(it.id)
         }
+    }
+
+    private fun launchShowCarFragment(CarID: Int){
+        findNavController().navigate(MainFragmentDirections.actionNavigationMainToNavigationShowCar(CarID))
     }
 
     private fun setupRecyclerView() {
         carListAdapter = CarListAdapter()
         binding.rvCar.adapter = carListAdapter
-        swipeToRemove(binding.rvCar)
+        swipeToMakeFavorite(binding.rvCar)
     }
 
-    private fun swipeToRemove(recyclerView: RecyclerView) {
+    private fun swipeToMakeFavorite(recyclerView: RecyclerView) {
         val callback = object : ItemTouchHelper.SimpleCallback(
             0,
             ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
@@ -87,11 +90,5 @@ class MainFragment : Fragment() {
         }
         val itemTouchHelper = ItemTouchHelper(callback)
         itemTouchHelper.attachToRecyclerView(recyclerView)
-    }
-    companion object {
-        fun newInstance(): MainFragment {
-            return MainFragment()
-        }
-
     }
 }
