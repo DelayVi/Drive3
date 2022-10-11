@@ -1,4 +1,4 @@
-package ru.delayvi.drive3.presentation.favorite_fragment
+package ru.delayvi.drive3.presentation.screens.favorite_fragment
 
 import android.content.Context
 import android.os.Bundle

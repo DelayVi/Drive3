@@ -1,4 +1,4 @@
-package ru.delayvi.drive3.presentation.message_fragment
+package ru.delayvi.drive3.presentation.screens.menu_fragment
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -8,24 +8,24 @@ import android.view.View
 import android.view.ViewGroup
 import ru.delayvi.drive3.R
 
-class MessageFragment : Fragment() {
+class Menu_Fragment : Fragment() {
 
     companion object {
-        fun newInstance() = MessageFragment()
+        fun newInstance() = Menu_Fragment()
     }
 
-    private lateinit var viewModel: MessageViewModel
+    private lateinit var viewModel: MenuViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_message, container, false)
+        return inflater.inflate(R.layout.fragment_menu, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MessageViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(MenuViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

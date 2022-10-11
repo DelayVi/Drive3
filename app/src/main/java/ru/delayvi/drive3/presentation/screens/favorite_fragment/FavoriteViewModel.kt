@@ -1,20 +1,19 @@
-package ru.delayvi.drive3.presentation.main_fragment
+package ru.delayvi.drive3.presentation.screens.favorite_fragment
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import ru.delayvi.drive3.domain.entity.Car
-import ru.delayvi.drive3.domain.usecases.DeleteCarUseCase
-import ru.delayvi.drive3.domain.usecases.GetCarListUseCase
+import ru.delayvi.drive3.domain.usecases.GetFavoriteCarListUseCase
 import ru.delayvi.drive3.domain.usecases.MakeFavoriteUseCase
 
-class MainViewModel(
-    private val getCarListUseCase: GetCarListUseCase,
+class FavoriteViewModel(
+    private val getFavoriteCarListUseCase: GetFavoriteCarListUseCase,
     private val makeFavoriteUseCase: MakeFavoriteUseCase
 ) : ViewModel() {
 
-    private val _carList = getCarListUseCase()
+    private val _carList = getFavoriteCarListUseCase()
     val carList: LiveData<List<Car>> = _carList
 
     fun makeFavorite(carId: Int) {

@@ -3,12 +3,14 @@ package ru.delayvi.drive3.di
 import dagger.Module
 import dagger.Provides
 import ru.delayvi.drive3.domain.usecases.*
-import ru.delayvi.drive3.presentation.car_fragment.CarFragmentViewModel
-import ru.delayvi.drive3.presentation.car_fragment.CarFragmentViewModelFactory
-import ru.delayvi.drive3.presentation.favorite_fragment.FavoriteViewModel
-import ru.delayvi.drive3.presentation.favorite_fragment.FavoriteViewModelFactory
-import ru.delayvi.drive3.presentation.main_fragment.MainViewModel
-import ru.delayvi.drive3.presentation.main_fragment.MainViewModelFactory
+import ru.delayvi.drive3.presentation.screens.car_fragment.CarFragmentViewModel
+import ru.delayvi.drive3.presentation.screens.car_fragment.CarFragmentViewModelFactory
+import ru.delayvi.drive3.presentation.screens.favorite_fragment.FavoriteViewModel
+import ru.delayvi.drive3.presentation.screens.favorite_fragment.FavoriteViewModelFactory
+import ru.delayvi.drive3.presentation.screens.main_fragment.MainViewModel
+import ru.delayvi.drive3.presentation.screens.main_fragment.MainViewModelFactory
+import ru.delayvi.drive3.presentation.screens.show_car_fragment.ShowCarViewModel
+import ru.delayvi.drive3.presentation.screens.show_car_fragment.ShowCarViewModelFactory
 
 
 @Module(includes = [AppBindsModule::class])
@@ -80,6 +82,24 @@ class AppModule {
         return CarFragmentViewModelFactory(
             addCarUseCase,
             editCarUseCase,
+            getCarUseCase
+        )
+    }
+
+    @Provides
+    fun provideShowCarFragmentViewModel(
+        getCarUseCase: GetCarUseCase
+    ): ShowCarViewModel {
+        return ShowCarViewModel(
+            getCarUseCase
+        )
+    }
+
+    @Provides
+    fun provideShowCarFragmentViewModelFactory(
+        getCarUseCase: GetCarUseCase
+    ): ShowCarViewModelFactory {
+        return ShowCarViewModelFactory(
             getCarUseCase
         )
     }

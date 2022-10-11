@@ -1,4 +1,4 @@
-package ru.delayvi.drive3.presentation.message_fragment
+package ru.delayvi.drive3.presentation.screens.message_fragment
 
 import androidx.lifecycle.ViewModel
 

@@ -4,9 +4,10 @@ import android.app.Application
 import dagger.BindsInstance
 import dagger.Component
 import ru.delayvi.drive3.presentation.MainActivity
-import ru.delayvi.drive3.presentation.car_fragment.CarFragment
-import ru.delayvi.drive3.presentation.favorite_fragment.FavoriteFragment
-import ru.delayvi.drive3.presentation.main_fragment.MainFragment
+import ru.delayvi.drive3.presentation.screens.car_fragment.CarFragment
+import ru.delayvi.drive3.presentation.screens.favorite_fragment.FavoriteFragment
+import ru.delayvi.drive3.presentation.screens.main_fragment.MainFragment
+import ru.delayvi.drive3.presentation.screens.show_car_fragment.ShowCarFragment
 
 @Component(modules = [AppModule::class])
 interface AppComponent {
@@ -19,6 +20,8 @@ interface AppComponent {
     fun inject(fragment: MainFragment)
 
     fun inject(fragment: FavoriteFragment)
+
+    fun inject(fragment: ShowCarFragment)
 
     @Component.Factory
     interface Factory {

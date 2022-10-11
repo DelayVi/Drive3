@@ -1,4 +1,4 @@
-package ru.delayvi.drive3.presentation.car_fragment
+package ru.delayvi.drive3.presentation.screens.car_fragment
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -12,9 +12,6 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.google.firebase.FirebaseApp
-import com.google.firebase.appcheck.FirebaseAppCheck
-import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import com.squareup.picasso.Picasso
@@ -56,6 +53,9 @@ class CarFragment : Fragment() {
 
 
     companion object {
+        fun getInstance(): CarFragment {
+            return CarFragment()
+        }
         const val ID_SCREEN_MODE_ADD = -1
         const val BASE_IMAGE_URL = "https://cdn.imagin.studio/getimage?customer=rudenistumanovcompany&"
         const val UNKNOWN_CAR_IMAGE =
@@ -114,7 +114,7 @@ class CarFragment : Fragment() {
         }
     }
 
-    fun placePhoto(uri: String) {
+    private fun placePhoto(uri: String) {
         Picasso.get().load(uri).placeholder(R.drawable.ic_launcher_foreground).into(binding.ivCar)
     }
 
@@ -147,4 +147,5 @@ class CarFragment : Fragment() {
             it.imageUri?.let { it1 -> placePhoto(it1) }
         }
     }
+
 }
