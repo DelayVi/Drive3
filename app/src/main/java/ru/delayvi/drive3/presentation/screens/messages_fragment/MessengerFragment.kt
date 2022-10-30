@@ -1,4 +1,4 @@
-package ru.delayvi.drive3.presentation.screens.message_fragment
+package ru.delayvi.drive3.presentation.screens.messages_fragment
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -8,13 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import ru.delayvi.drive3.R
 
-class MessageFragment : Fragment() {
+class MessengerFragment : Fragment() {
 
     companion object {
-        fun newInstance() = MessageFragment()
+        fun newInstance() = MessengerFragment()
     }
 
-    private lateinit var viewModel: MessageViewModel
+    private lateinit var viewModel: MessengerViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +25,7 @@ class MessageFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MessageViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(MessengerViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

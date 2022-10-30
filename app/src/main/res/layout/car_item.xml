@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="2dp"
-        android:paddingBottom="8dp"
         android:translationZ="10dp">
 
         <androidx.cardview.widget.CardView
@@ -46,6 +45,7 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:textStyle="bold"
+                        android:text="BMW X4"
                         app:getNameFromBrandAndModel="@{carProperties}"
                         />
 
@@ -64,7 +64,8 @@
                     android:fontFamily="@font/calibri"
                     app:setEquipmentToViewHolder="@{carProperties}"
                     android:textColor="#a4a7b5"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:text="3.0 Diesel AT AWD Luxury"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -85,7 +86,8 @@
                         android:fontFamily="@font/calibri"
                         app:setEngineToViewHolder="@{carProperties.engine}"
                         android:textColor="#000000"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:text="300л.с."/>
 
                     <ImageView
                         android:layout_width="16dp"
@@ -100,7 +102,8 @@
                         android:fontFamily="@font/calibri"
                         app:setColorToViewHolder="@{carProperties.color}"
                         android:textColor="#000000"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:text="Белый"/>
 
                     <ImageView
                         android:layout_width="16dp"
@@ -115,7 +118,8 @@
                         android:fontFamily="@font/calibri"
                         app:setFuelToViewHolder="@{carProperties.fuel}"
                         android:textColor="#000000"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:text="Дизель"/>
 
                 </LinearLayout>
 
@@ -127,7 +131,7 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/bmw_car_img" />
 
-                <RelativeLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="100">
@@ -137,9 +141,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
+                        android:text="4 600 700 Р"
                         android:textColor="@color/red"
                         android:textSize="24sp"
                         android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
                         app:setPriceToViewHolder="@{carProperties.price}" />
 
                     <TextView
@@ -151,9 +158,11 @@
                         android:padding="8dp"
                         android:text="Book Now"
                         android:textColor="#FFFFFF"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
 
-                </RelativeLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
 

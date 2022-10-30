@@ -56,7 +56,7 @@ class ShowCarFragment : Fragment() {
         }
         binding.buttonSendMessage.setOnClickListener {
             binding.scrollViewShowCar.scrollTo(0, 100)
-            toast("НАписать")
+            toast("Написать")
         }
         viewModel.carItem.observe(viewLifecycleOwner){
             binding.showCarItem = it

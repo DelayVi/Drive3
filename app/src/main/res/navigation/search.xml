@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/search"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="ru.delayvi.drive3.presentation.screens.main_fragment.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_showCarFragment"
+            app:destination="@id/showCarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showCarFragment"
+        android:name="ru.delayvi.drive3.presentation.screens.show_car_fragment.ShowCarFragment"
+        android:label="ShowCarFragment" >
+        <action
+            android:id="@+id/action_showCarFragment_to_carFragment"
+            app:destination="@id/carFragment" />
+        <argument
+            android:name="carId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/carFragment"
+        android:name="ru.delayvi.drive3.presentation.screens.add_car_fragment.CarFragment"
+        android:label="CarFragment" >
+        <action
+            android:id="@+id/action_carFragment_to_showCarFragment"
+            app:destination="@id/showCarFragment" />
+    </fragment>
+</navigation>

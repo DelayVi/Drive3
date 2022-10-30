@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="2dp"
-        android:paddingBottom="8dp"
         android:translationZ="10dp">
 
         <androidx.cardview.widget.CardView
@@ -33,13 +32,26 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tilBrandMain"
+                    android:id="@+id/tilBrandName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginBottom="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginBottom="10dp">
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Brand" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilModelName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintTop_toBottomOf="@id/tilBrandName">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
@@ -47,18 +59,12 @@
                         android:hint="Model" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/tilModelMain"
-                        app:layout_constraintTop_toBottomOf="@id/tilBrandMain"
-                        android:layout_marginTop="10dp">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Brand" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Расширенный поиск"
+                    app:layout_constraintTop_toBottomOf="@id/tilModelName" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

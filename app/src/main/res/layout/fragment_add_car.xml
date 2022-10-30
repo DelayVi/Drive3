@@ -6,14 +6,14 @@
     <data>
         <variable
             name="viewModel"
-            type="ru.delayvi.drive3.presentation.screens.car_fragment.CarFragmentViewModel" />
+            type="ru.delayvi.drive3.presentation.screens.add_car_fragment.CarFragmentViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
-        tools:context=".presentation.MainActivity">
+        tools:context=".presentation.screens.MainActivity">
 
         <ScrollView
             android:layout_width="0dp"

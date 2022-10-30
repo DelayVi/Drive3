@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/add_car"
+    app:startDestination="@id/addCarFragment">
+
+    <fragment
+        android:id="@+id/addCarFragment"
+        android:name="ru.delayvi.drive3.presentation.screens.add_car_fragment.CarFragment"
+        android:label="CarFragment" />
+</navigation>
