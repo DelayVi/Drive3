@@ -1,4 +1,4 @@
-package ru.delayvi.drive3.presentation.screens.car_fragment
+package ru.delayvi.drive3.presentation.screens.add_car_fragment
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -16,7 +16,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import com.squareup.picasso.Picasso
 import ru.delayvi.drive3.R
-import ru.delayvi.drive3.databinding.FragmentCarBinding
+import ru.delayvi.drive3.databinding.FragmentAddCarBinding
 import ru.delayvi.drive3.di.DaggerAppComponent
 import ru.delayvi.drive3.domain.entity.Car
 import ru.delayvi.drive3.domain.entity.Color
@@ -27,7 +27,7 @@ import javax.inject.Inject
 
 class CarFragment : Fragment() {
 
-    private lateinit var binding: FragmentCarBinding
+    private lateinit var binding: FragmentAddCarBinding
     //private val args by navArgs<CarFragmentArgs>()
 
     @Inject
@@ -71,7 +71,7 @@ class CarFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentCarBinding.inflate(inflater, container, false)
+        binding = FragmentAddCarBinding.inflate(inflater, container, false)
         return binding.root
     }
 
