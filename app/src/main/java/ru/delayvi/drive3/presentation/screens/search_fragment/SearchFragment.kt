@@ -1,35 +1,39 @@
-package ru.delayvi.drive3.presentation.screens.main_fragment
+package ru.delayvi.drive3.presentation.screens.search_fragment
 
 import android.content.Context
+import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
+import com.parse.ParseObject
+import com.parse.ParseUser
+import com.parse.SignUpCallback
+import ru.delayvi.drive3.R
 import ru.delayvi.drive3.databinding.FragmentMainBinding
+import ru.delayvi.drive3.databinding.FragmentSearchBinding
 import ru.delayvi.drive3.di.DaggerAppComponent
-import ru.delayvi.drive3.domain.entity.Car
 import ru.delayvi.drive3.presentation.recycler_view.CarListAdapter
+import ru.delayvi.drive3.presentation.screens.main_fragment.MainFragmentDirections
+import ru.delayvi.drive3.presentation.screens.main_fragment.MainViewModel
+import ru.delayvi.drive3.presentation.screens.main_fragment.MainViewModelFactory
 import javax.inject.Inject
 
-class MainFragment() : Fragment() {
+class SearchFragment : Fragment() {
 
-    private var _binding: FragmentMainBinding? = null
-    private val binding: FragmentMainBinding
+    private var _binding: FragmentSearchBinding? = null
+    private val binding: FragmentSearchBinding
         get() = _binding ?: throw RuntimeException("FragmentMainBinding == null")
 
     @Inject
-    lateinit var viewModelFactory: MainViewModelFactory
+    lateinit var viewModelFactory: SearchViewModelFactory
 
-    private val viewModel: MainViewModel by lazy {
-        ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
+    private val viewModel: SearchViewModel by lazy {
+        ViewModelProvider(this, viewModelFactory)[SearchViewModel::class.java]
     }
 
     private val appComponent by lazy {
@@ -47,17 +51,19 @@ class MainFragment() : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMainBinding.inflate(inflater, container, false)
+        _binding = FragmentSearchBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
-        findNavController().navigate(MainFragmentDirections.actionMainFragmentToSearchFragment())
+
         viewModel.carList.observe(viewLifecycleOwner) {
             carListAdapter.submitList(it)
         }
+
+
         carListAdapter.onClickListener = {
             launchShowCarFragment(it.id)
         }
@@ -68,12 +74,24 @@ class MainFragment() : Fragment() {
     }
 
     private fun launchShowCarFragment(carID: Int) {
-        //   findNavController().navigate(MainFragmentDirections.actionMainFragmentToShowCarFragment(carID))
+        val entity = ParseObject("Radjab");
+
+        entity.put("name", "Vadim Alyamkin");
+
+        entity.saveInBackground {
+            if (it != null) {
+                it.localizedMessage?.let { message -> Log.e("MainActivity", message) }
+            } else {
+                Log.d("MainActivity", "Object saved.")
+                Toast.makeText(requireContext(), "Object saved.", Toast.LENGTH_LONG).show()
+            }
+        }
+       // findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToShowCarFragment(carID))
     }
 
     private fun setupRecyclerView() {
         carListAdapter = CarListAdapter()
-        // binding.rvCar.adapter = carListAdapter
+        binding.rvCar.adapter = carListAdapter
     }
 
 

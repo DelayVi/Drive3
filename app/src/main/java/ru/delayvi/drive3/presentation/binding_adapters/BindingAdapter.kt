@@ -14,7 +14,7 @@ fun setPriceToViewHolder(textView: TextView, text: String) {
 
 @BindingAdapter("setEngineToViewHolder")
 fun setEngineToViewHolder(textView: TextView, volume: String?) {
-    textView.text = (volume?.toDouble()?.times(100).toString().take(3) + "л.с.") ?: ""
+    textView.text = (volume?.toDouble()?.times(100).toString().take(3) + "л.с.")
 }
 
 @BindingAdapter("setEngineToCarFragment")

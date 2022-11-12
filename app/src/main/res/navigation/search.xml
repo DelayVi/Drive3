@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/search"
     app:startDestination="@id/mainFragment">
 
@@ -9,8 +10,8 @@
         android:name="ru.delayvi.drive3.presentation.screens.main_fragment.MainFragment"
         android:label="MainFragment" >
         <action
-            android:id="@+id/action_mainFragment_to_showCarFragment"
-            app:destination="@id/showCarFragment" />
+            android:id="@+id/action_mainFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/showCarFragment"
@@ -29,6 +30,15 @@
         android:label="CarFragment" >
         <action
             android:id="@+id/action_carFragment_to_showCarFragment"
+            app:destination="@id/showCarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="ru.delayvi.drive3.presentation.screens.search_fragment.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_showCarFragment"
             app:destination="@id/showCarFragment" />
     </fragment>
 </navigation>

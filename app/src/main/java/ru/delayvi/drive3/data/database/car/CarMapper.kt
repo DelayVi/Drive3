@@ -1,4 +1,4 @@
-package ru.delayvi.drive3.data.database
+package ru.delayvi.drive3.data.database.car
 
 import ru.delayvi.drive3.domain.entity.Car
 import ru.delayvi.drive3.domain.entity.Color

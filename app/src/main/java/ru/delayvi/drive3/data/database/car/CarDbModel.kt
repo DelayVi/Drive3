@@ -1,4 +1,4 @@
-package ru.delayvi.drive3.data.database
+package ru.delayvi.drive3.data.database.car
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
