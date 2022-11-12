@@ -1,11 +1,10 @@
-package ru.delayvi.drive3.data.database
+package ru.delayvi.drive3.data.database.car
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import ru.delayvi.drive3.domain.entity.Car
 
 @Dao
 interface CarDao {

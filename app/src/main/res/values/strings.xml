@@ -8,4 +8,7 @@
     <string name="fragment_car">fragment_car</string>
     <string name="fragment_main">fragment_main</string>
     <string name="fragment_menu">fragment_menu</string>
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+    <string name="back4app_app_id">Nwu3MUmoSJG4bsppstcU78DIYC7eVjtaNyu7qY17</string>
+    <string name="back4app_client_key">Ic4iVhbf60VFbFFXeFt3ppNSUyhSJEfhloURZinX</string>
 </resources>
