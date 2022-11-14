@@ -1,13 +1,12 @@
 package ru.delayvi.drive3.presentation.screens.main_fragment
 
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import ru.delayvi.drive3.domain.entity.Car
-import ru.delayvi.drive3.domain.usecases.GetCarListUseCase
-import ru.delayvi.drive3.domain.usecases.MakeFavoriteUseCase
+import ru.delayvi.drive3.domain.entity.cars.Car
+import ru.delayvi.drive3.domain.usecases.cars.GetCarListUseCase
+import ru.delayvi.drive3.domain.usecases.cars.MakeFavoriteUseCase
 
 class MainViewModel(
     private val getCarListUseCase: GetCarListUseCase,

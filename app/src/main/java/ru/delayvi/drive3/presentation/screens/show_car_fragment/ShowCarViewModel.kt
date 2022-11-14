@@ -6,8 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import ru.delayvi.drive3.domain.entity.Car
-import ru.delayvi.drive3.domain.usecases.GetCarUseCase
+import ru.delayvi.drive3.domain.entity.cars.Car
+import ru.delayvi.drive3.domain.usecases.cars.GetCarUseCase
 
 class ShowCarViewModel (
     val getCarUseCase: GetCarUseCase

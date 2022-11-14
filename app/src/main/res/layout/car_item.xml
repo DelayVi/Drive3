@@ -5,7 +5,7 @@
     <data>
         <variable
             name="carProperties"
-            type="ru.delayvi.drive3.domain.entity.Car" />
+            type="ru.delayvi.drive3.domain.entity.cars.Car" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

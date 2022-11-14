@@ -2,8 +2,8 @@ package ru.delayvi.drive3.presentation.screens.favorite_fragment
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import ru.delayvi.drive3.domain.usecases.GetFavoriteCarListUseCase
-import ru.delayvi.drive3.domain.usecases.MakeFavoriteUseCase
+import ru.delayvi.drive3.domain.usecases.cars.GetFavoriteCarListUseCase
+import ru.delayvi.drive3.domain.usecases.cars.MakeFavoriteUseCase
 import javax.inject.Inject
 
 class FavoriteViewModelFactory @Inject constructor(

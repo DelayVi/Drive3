@@ -17,7 +17,7 @@
         android:icon="@drawable/ic_baseline_message_24"
         android:title="Сообщения"/>
     <item
-        android:id="@+id/settings"
-        android:icon="@drawable/ic_baseline_menu_24"
-        android:title="Меню"/>
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_baseline_account_box_24"
+        android:title="Профиль"/>
 </menu>

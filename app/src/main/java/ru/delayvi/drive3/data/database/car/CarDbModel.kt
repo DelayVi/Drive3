@@ -2,8 +2,8 @@ package ru.delayvi.drive3.data.database.car
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import ru.delayvi.drive3.domain.entity.Color
-import ru.delayvi.drive3.domain.entity.Fuel
+import ru.delayvi.drive3.domain.entity.cars.Color
+import ru.delayvi.drive3.domain.entity.cars.Fuel
 
 @Entity(tableName = "cars")
 data class CarDbModel (

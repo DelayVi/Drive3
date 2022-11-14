@@ -1,4 +1,4 @@
-package ru.delayvi.drive3.domain.entity
+package ru.delayvi.drive3.domain.entity.messages
 
 data class Dialog(
     val fromUser: Int,

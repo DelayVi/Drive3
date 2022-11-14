@@ -2,7 +2,7 @@ package ru.delayvi.drive3.presentation.binding_adapters
 
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import ru.delayvi.drive3.domain.entity.Car
+import ru.delayvi.drive3.domain.entity.cars.Car
 import java.text.SimpleDateFormat
 import java.util.*
 

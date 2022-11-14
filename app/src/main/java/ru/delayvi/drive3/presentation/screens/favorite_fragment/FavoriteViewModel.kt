@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import ru.delayvi.drive3.domain.entity.Car
-import ru.delayvi.drive3.domain.usecases.GetFavoriteCarListUseCase
-import ru.delayvi.drive3.domain.usecases.MakeFavoriteUseCase
+import ru.delayvi.drive3.domain.entity.cars.Car
+import ru.delayvi.drive3.domain.usecases.cars.GetFavoriteCarListUseCase
+import ru.delayvi.drive3.domain.usecases.cars.MakeFavoriteUseCase
 
 class FavoriteViewModel(
     private val getFavoriteCarListUseCase: GetFavoriteCarListUseCase,

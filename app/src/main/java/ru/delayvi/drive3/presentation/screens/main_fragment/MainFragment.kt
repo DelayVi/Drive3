@@ -2,20 +2,14 @@ package ru.delayvi.drive3.presentation.screens.main_fragment
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 import ru.delayvi.drive3.databinding.FragmentMainBinding
 import ru.delayvi.drive3.di.DaggerAppComponent
-import ru.delayvi.drive3.domain.entity.Car
 import ru.delayvi.drive3.presentation.recycler_view.CarListAdapter
 import javax.inject.Inject
 

@@ -11,4 +11,8 @@
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>
     <string name="back4app_app_id">Nwu3MUmoSJG4bsppstcU78DIYC7eVjtaNyu7qY17</string>
     <string name="back4app_client_key">Ic4iVhbf60VFbFFXeFt3ppNSUyhSJEfhloURZinX</string>
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
+    <string name="to_sign_in">Войти</string>
+    <string name="to_sign_up">Зарегестрироваться</string>
 </resources>

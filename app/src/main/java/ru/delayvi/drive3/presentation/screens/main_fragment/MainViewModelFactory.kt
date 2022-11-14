@@ -2,8 +2,8 @@ package ru.delayvi.drive3.presentation.screens.main_fragment
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import ru.delayvi.drive3.domain.usecases.GetCarListUseCase
-import ru.delayvi.drive3.domain.usecases.MakeFavoriteUseCase
+import ru.delayvi.drive3.domain.usecases.cars.GetCarListUseCase
+import ru.delayvi.drive3.domain.usecases.cars.MakeFavoriteUseCase
 import javax.inject.Inject
 
 class MainViewModelFactory @Inject constructor(

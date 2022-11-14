@@ -18,9 +18,9 @@ import com.squareup.picasso.Picasso
 import ru.delayvi.drive3.R
 import ru.delayvi.drive3.databinding.FragmentAddCarBinding
 import ru.delayvi.drive3.di.DaggerAppComponent
-import ru.delayvi.drive3.domain.entity.Car
-import ru.delayvi.drive3.domain.entity.Color
-import ru.delayvi.drive3.domain.entity.Fuel
+import ru.delayvi.drive3.domain.entity.cars.Car
+import ru.delayvi.drive3.domain.entity.cars.Color
+import ru.delayvi.drive3.domain.entity.cars.Fuel
 import java.io.ByteArrayOutputStream
 import javax.inject.Inject
 
