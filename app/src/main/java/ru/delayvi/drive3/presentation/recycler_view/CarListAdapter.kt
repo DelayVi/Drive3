@@ -3,13 +3,11 @@ package ru.delayvi.drive3.presentation.recycler_view
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.ListAdapter
 import com.squareup.picasso.Picasso
 import ru.delayvi.drive3.R
 import ru.delayvi.drive3.databinding.CarItemBinding
-import ru.delayvi.drive3.databinding.SearchItemBinding
-import ru.delayvi.drive3.domain.entity.Car
+import ru.delayvi.drive3.domain.entity.cars.Car
 
 
 class CarListAdapter() : ListAdapter<Car, CarViewHolder>(CarDiffUtilCallback()) {

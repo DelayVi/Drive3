@@ -1,12 +1,11 @@
 package ru.delayvi.drive3.data.database.car
 
-import ru.delayvi.drive3.domain.entity.Car
-import ru.delayvi.drive3.domain.entity.Color
+import ru.delayvi.drive3.domain.entity.cars.Car
 
 class CarMapper {
 
     fun mapEntityToDbModel(car: Car) = with(car) {
-        CarDbModel(id, brand, model, price, engine, fuel, Color.WHITE, imageUri, year, description, isFavorite)
+        CarDbModel(id, brand, model, price, engine, fuel, ru.delayvi.drive3.domain.entity.cars.Color.WHITE, imageUri, year, description, isFavorite)
     }
 
     fun mapDbModelToEntity(carDbModel: CarDbModel) = with(carDbModel) {

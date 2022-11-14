@@ -6,11 +6,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import ru.delayvi.drive3.domain.entity.Car
-import ru.delayvi.drive3.domain.entity.Color
-import ru.delayvi.drive3.domain.usecases.AddCarUseCase
-import ru.delayvi.drive3.domain.usecases.EditCarUseCase
-import ru.delayvi.drive3.domain.usecases.GetCarUseCase
+import ru.delayvi.drive3.domain.entity.cars.Car
+import ru.delayvi.drive3.domain.entity.cars.Color
+import ru.delayvi.drive3.domain.usecases.cars.AddCarUseCase
+import ru.delayvi.drive3.domain.usecases.cars.EditCarUseCase
+import ru.delayvi.drive3.domain.usecases.cars.GetCarUseCase
 
 class CarFragmentViewModel(
     private val addCarUseCase: AddCarUseCase,

@@ -1,7 +1,5 @@
-package ru.delayvi.drive3.domain.usecases
+package ru.delayvi.drive3.domain.usecases.cars
 
-import androidx.lifecycle.LiveData
-import ru.delayvi.drive3.domain.entity.Car
 import ru.delayvi.drive3.domain.repository.CarListRepository
 import javax.inject.Inject
 

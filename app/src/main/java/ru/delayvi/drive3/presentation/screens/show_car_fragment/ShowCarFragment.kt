@@ -13,7 +13,6 @@ import com.squareup.picasso.Picasso
 import ru.delayvi.drive3.R
 import ru.delayvi.drive3.databinding.FragmentShowCarBinding
 import ru.delayvi.drive3.di.DaggerAppComponent
-import ru.delayvi.drive3.domain.entity.Car
 import javax.inject.Inject
 
 class ShowCarFragment : Fragment() {

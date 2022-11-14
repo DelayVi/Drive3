@@ -1,22 +1,25 @@
 package ru.delayvi.drive3.data.database
 
 import android.app.Application
-import androidx.lifecycle.viewModelScope
+import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.launch
 import ru.delayvi.drive3.data.database.car.CarDao
 import ru.delayvi.drive3.data.database.car.CarDbModel
-import ru.delayvi.drive3.domain.entity.Car
-import ru.delayvi.drive3.domain.entity.Color
-import ru.delayvi.drive3.domain.entity.Fuel
+import ru.delayvi.drive3.data.database.login.LoginDao
+import ru.delayvi.drive3.data.database.login.SavedUserDbModel
+import ru.delayvi.drive3.data.database.login.UserDbModel
+import ru.delayvi.drive3.data.database.messenger.MessengerDao
 
-@Database(entities = [CarDbModel::class], version = 2, exportSchema = false)
+@Database(entities = [CarDbModel::class, SavedUserDbModel::class, UserDbModel::class], version = 5, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun carDao(): CarDao
+
+    abstract fun loginDao(): LoginDao
+
+    abstract fun messengerDao(): MessengerDao
 
     companion object {
 

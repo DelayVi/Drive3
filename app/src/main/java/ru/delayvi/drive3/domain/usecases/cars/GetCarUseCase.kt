@@ -1,4 +1,4 @@
-package ru.delayvi.drive3.domain.usecases
+package ru.delayvi.drive3.domain.usecases.cars
 
 import ru.delayvi.drive3.domain.repository.CarListRepository
 import javax.inject.Inject

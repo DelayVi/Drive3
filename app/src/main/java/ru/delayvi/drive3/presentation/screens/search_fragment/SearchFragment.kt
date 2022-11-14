@@ -8,8 +8,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.*
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.parse.ParseObject
 import com.parse.ParseUser
 import com.parse.SignUpCallback
@@ -17,6 +19,7 @@ import ru.delayvi.drive3.R
 import ru.delayvi.drive3.databinding.FragmentMainBinding
 import ru.delayvi.drive3.databinding.FragmentSearchBinding
 import ru.delayvi.drive3.di.DaggerAppComponent
+import ru.delayvi.drive3.domain.entity.users.LoggedForm
 import ru.delayvi.drive3.presentation.recycler_view.CarListAdapter
 import ru.delayvi.drive3.presentation.screens.main_fragment.MainFragmentDirections
 import ru.delayvi.drive3.presentation.screens.main_fragment.MainViewModel
@@ -63,15 +66,54 @@ class SearchFragment : Fragment() {
             carListAdapter.submitList(it)
         }
 
+        binding.buttonTestSignIn.setOnClickListener {
+            showSignInDialog()
+        }
+
 
         carListAdapter.onClickListener = {
             launchShowCarFragment(it.id)
+
         }
 
         carListAdapter.onFavoriteStarClickListener = {
             viewModel.makeFavorite(it.id)
         }
     }
+
+    private fun showSignInDialog() {
+        val dialog = BottomSheetDialog(requireContext())
+        dialog.setContentView(R.layout.sign_in_bottom_sheet)
+        val buttonSignIn = dialog.findViewById<Button>(R.id.buttonSignIn)
+        val buttonSignUp = dialog.findViewById<Button>(R.id.buttonSignUp)
+        val etLogin = dialog.findViewById<EditText>(R.id.etLogin)
+        val etPassword = dialog.findViewById<EditText>(R.id.etPassword)
+        val tvName = dialog.findViewById<TextView>(R.id.tvCurrentUserDisplayName)
+
+        buttonSignIn?.setOnClickListener {
+            viewModel.isAuthorized.observe(viewLifecycleOwner){
+                if (!it) {
+                    buttonSignIn.text = "Выйти"
+                    viewModel.signIn(LoggedForm(etLogin?.text.toString(), etPassword?.text.toString()))
+                }
+                else {
+                    buttonSignIn.text = "Войти"
+                    viewModel.logout()
+                }
+            }
+
+            viewModel.currentUserView.observe(viewLifecycleOwner){
+                Toast.makeText(requireContext(), "Current username ${it.displayName}", Toast.LENGTH_SHORT).show()
+                tvName?.text = it.displayName
+            }
+
+        }
+        buttonSignUp?.setOnClickListener {
+            viewModel.signUpTest(LoggedForm(etLogin?.text.toString(), etPassword?.text.toString()))
+        }
+        dialog.show()
+    }
+
 
     private fun launchShowCarFragment(carID: Int) {
         val entity = ParseObject("Radjab");
@@ -86,7 +128,7 @@ class SearchFragment : Fragment() {
                 Toast.makeText(requireContext(), "Object saved.", Toast.LENGTH_LONG).show()
             }
         }
-       // findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToShowCarFragment(carID))
+        // findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToShowCarFragment(carID))
     }
 
     private fun setupRecyclerView() {

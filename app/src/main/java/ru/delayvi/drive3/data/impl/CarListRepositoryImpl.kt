@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import ru.delayvi.drive3.data.database.AppDatabase
 import ru.delayvi.drive3.data.database.car.CarMapper
-import ru.delayvi.drive3.domain.entity.Car
+import ru.delayvi.drive3.domain.entity.cars.Car
 import ru.delayvi.drive3.domain.repository.CarListRepository
 import javax.inject.Inject
 

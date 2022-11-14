@@ -1,7 +1,7 @@
 package ru.delayvi.drive3.domain.repository
 
 import androidx.lifecycle.LiveData
-import ru.delayvi.drive3.domain.entity.Car
+import ru.delayvi.drive3.domain.entity.cars.Car
 
 interface CarListRepository {
 

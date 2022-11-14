@@ -2,9 +2,9 @@ package ru.delayvi.drive3.presentation
 
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import ru.delayvi.drive3.domain.entity.Car
-import ru.delayvi.drive3.domain.entity.Color
-import ru.delayvi.drive3.domain.entity.Fuel
+import ru.delayvi.drive3.domain.entity.cars.Car
+import ru.delayvi.drive3.domain.entity.cars.Color
+import ru.delayvi.drive3.domain.entity.cars.Fuel
 
 @BindingAdapter("setPriceToViewHolder")
 fun setPriceToViewHolder(textView: TextView, text: String) {

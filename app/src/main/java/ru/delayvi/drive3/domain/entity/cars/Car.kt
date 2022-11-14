@@ -1,4 +1,4 @@
-package ru.delayvi.drive3.domain.entity
+package ru.delayvi.drive3.domain.entity.cars
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

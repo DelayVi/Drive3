@@ -8,5 +8,5 @@
     <include app:graph="@navigation/favorite" />
     <include app:graph="@navigation/add_car" />
     <include app:graph="@navigation/messages" />
-    <include app:graph="@navigation/settings" />
+    <include app:graph="@navigation/profile" />
 </navigation>
