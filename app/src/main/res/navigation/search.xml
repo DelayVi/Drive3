@@ -14,31 +14,8 @@
             app:destination="@id/searchFragment" />
     </fragment>
     <fragment
-        android:id="@+id/showCarFragment"
-        android:name="ru.delayvi.drive3.presentation.screens.show_car_fragment.ShowCarFragment"
-        android:label="ShowCarFragment" >
-        <action
-            android:id="@+id/action_showCarFragment_to_carFragment"
-            app:destination="@id/carFragment" />
-        <argument
-            android:name="carId"
-            app:argType="integer" />
-    </fragment>
-    <fragment
-        android:id="@+id/carFragment"
-        android:name="ru.delayvi.drive3.presentation.screens.add_car_fragment.CarFragment"
-        android:label="CarFragment" >
-        <action
-            android:id="@+id/action_carFragment_to_showCarFragment"
-            app:destination="@id/showCarFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/searchFragment"
         android:name="ru.delayvi.drive3.presentation.screens.search_fragment.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" >
-        <action
-            android:id="@+id/action_searchFragment_to_showCarFragment"
-            app:destination="@id/showCarFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_search" />
 </navigation>

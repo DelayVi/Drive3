@@ -66,9 +66,8 @@ class SearchFragment : Fragment() {
             carListAdapter.submitList(it)
         }
 
-        binding.buttonTestSignIn.setOnClickListener {
-            showSignInDialog()
-        }
+
+
 
 
         carListAdapter.onClickListener = {
@@ -81,38 +80,35 @@ class SearchFragment : Fragment() {
         }
     }
 
-    private fun showSignInDialog() {
-        val dialog = BottomSheetDialog(requireContext())
-        dialog.setContentView(R.layout.sign_in_bottom_sheet)
-        val buttonSignIn = dialog.findViewById<Button>(R.id.buttonSignIn)
-        val buttonSignUp = dialog.findViewById<Button>(R.id.buttonSignUp)
-        val etLogin = dialog.findViewById<EditText>(R.id.etLogin)
-        val etPassword = dialog.findViewById<EditText>(R.id.etPassword)
-        val tvName = dialog.findViewById<TextView>(R.id.tvCurrentUserDisplayName)
-
-        buttonSignIn?.setOnClickListener {
-            viewModel.isAuthorized.observe(viewLifecycleOwner){
-                if (!it) {
-                    buttonSignIn.text = "Выйти"
-                    viewModel.signIn(LoggedForm(etLogin?.text.toString(), etPassword?.text.toString()))
-                }
-                else {
-                    buttonSignIn.text = "Войти"
-                    viewModel.logout()
-                }
-            }
-
-            viewModel.currentUserView.observe(viewLifecycleOwner){
-                Toast.makeText(requireContext(), "Current username ${it.displayName}", Toast.LENGTH_SHORT).show()
-                tvName?.text = it.displayName
-            }
-
-        }
-        buttonSignUp?.setOnClickListener {
-            viewModel.signUpTest(LoggedForm(etLogin?.text.toString(), etPassword?.text.toString()))
-        }
-        dialog.show()
-    }
+//    private fun showSignInDialog() {
+//        val dialog = BottomSheetDialog(requireContext())
+//        dialog.setContentView(R.layout.sign_in_bottom_sheet)
+//        val buttonSignIn = dialog.findViewById<Button>(R.id.buttonSignIn)
+//        val buttonSignUp = dialog.findViewById<Button>(R.id.buttonSignUp)
+//        val etLogin = dialog.findViewById<EditText>(R.id.etLogin)
+//        val etPassword = dialog.findViewById<EditText>(R.id.etPassword)
+//        val tvName = dialog.findViewById<TextView>(R.id.tvCurrentUserDisplayName)
+//
+//        buttonSignIn?.setOnClickListener {
+//            viewModel.signIn(etLogin?.text.toString(), etPassword?.text.toString())
+//        }
+//        buttonSignUp?.setOnClickListener {
+//            viewModel.signUpTest(LoggedForm(etLogin?.text.toString(), etPassword?.text.toString()))
+//        }
+//
+//        viewModel.currentUserView.observe(viewLifecycleOwner) {
+//            tvName?.text = it.displayName
+//            Log.d("MyLog", "search fragment current user: $it")
+//        }
+//        viewModel.isAuthorized.observe(viewLifecycleOwner) {
+//            Toast.makeText(requireContext(), "Authorized: $it", Toast.LENGTH_SHORT).show()
+//            Log.d("MyLog", "isAuthorized in fragment: $it")
+//        }
+//
+//        dialog.show()
+//
+//
+//    }
 
 
     private fun launchShowCarFragment(carID: Int) {
