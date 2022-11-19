@@ -13,4 +13,25 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="GlobalTextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:minWidth">260dp</item>
+    </style>
+
+    <style name="GlobalButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="GlobalTextInputStyle.Big">
+        <item name="android:minWidth">260dp</item>
+    </style>
+
+    <style name="GlobalTextInputStyle.Secondary">
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="GlobalTextInputStyle.Secondary.Big">
+        <item name="android:minWidth">260dp</item>
+    </style>
+
 </resources>

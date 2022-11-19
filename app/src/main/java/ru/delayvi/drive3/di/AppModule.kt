@@ -10,6 +10,8 @@ import ru.delayvi.drive3.presentation.screens.favorite_fragment.FavoriteViewMode
 import ru.delayvi.drive3.presentation.screens.favorite_fragment.FavoriteViewModelFactory
 import ru.delayvi.drive3.presentation.screens.main_fragment.MainViewModel
 import ru.delayvi.drive3.presentation.screens.main_fragment.MainViewModelFactory
+import ru.delayvi.drive3.presentation.screens.profile_fragment.ProfileViewModel
+import ru.delayvi.drive3.presentation.screens.profile_fragment.ProfileViewModelFactory
 import ru.delayvi.drive3.presentation.screens.search_fragment.SearchViewModel
 import ru.delayvi.drive3.presentation.screens.search_fragment.SearchViewModelFactory
 import ru.delayvi.drive3.presentation.screens.show_car_fragment.ShowCarViewModel
@@ -39,6 +41,40 @@ class AppModule {
         return MainViewModelFactory(
             getCarListUseCase,
             makeFavoriteUseCase
+        )
+    }
+
+    @Provides
+    fun provideProfileViewModel(
+        isAuthorizedUseCase: IsAuthorizedUseCase,
+        signUpUseCaseTest: SignUpUseCase,
+        signInUseCase: SignInUseCase,
+        getCurrentUserViewUseCase: GetCurrentUserViewUseCase,
+        logoutUseCase: LogoutUseCase
+    ): ProfileViewModel {
+        return ProfileViewModel(
+            isAuthorizedUseCase,
+            signUpUseCaseTest,
+            signInUseCase,
+            getCurrentUserViewUseCase,
+            logoutUseCase
+        )
+    }
+
+    @Provides
+    fun provideProfileViewModelFactory(
+        isAuthorizedUseCase: IsAuthorizedUseCase,
+        signUpUseCaseTest: SignUpUseCase,
+        signInUseCase: SignInUseCase,
+        getCurrentUserViewUseCase: GetCurrentUserViewUseCase,
+        logoutUseCase: LogoutUseCase
+    ): ProfileViewModelFactory {
+        return ProfileViewModelFactory(
+            isAuthorizedUseCase,
+            signUpUseCaseTest,
+            signInUseCase,
+            getCurrentUserViewUseCase,
+            logoutUseCase
         )
     }
 

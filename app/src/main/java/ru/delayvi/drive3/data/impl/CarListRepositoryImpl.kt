@@ -1,6 +1,7 @@
 package ru.delayvi.drive3.data.impl
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import ru.delayvi.drive3.data.database.AppDatabase

@@ -8,6 +8,7 @@ import ru.delayvi.drive3.presentation.screens.MainActivity
 import ru.delayvi.drive3.presentation.screens.add_car_fragment.CarFragment
 import ru.delayvi.drive3.presentation.screens.favorite_fragment.FavoriteFragment
 import ru.delayvi.drive3.presentation.screens.main_fragment.MainFragment
+import ru.delayvi.drive3.presentation.screens.profile_fragment.ProfileFragment
 import ru.delayvi.drive3.presentation.screens.search_fragment.SearchFragment
 import ru.delayvi.drive3.presentation.screens.search_fragment.SearchViewModel
 import ru.delayvi.drive3.presentation.screens.show_car_fragment.ShowCarFragment
@@ -29,6 +30,8 @@ interface AppComponent {
     fun inject(fragment: ShowCarFragment)
 
     fun inject(fragment: SearchFragment)
+
+    fun inject(fragment: ProfileFragment)
 
     @Component.Factory
     interface Factory {
