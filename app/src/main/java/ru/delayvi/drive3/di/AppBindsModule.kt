@@ -4,6 +4,8 @@ import dagger.Binds
 import dagger.Module
 import ru.delayvi.drive3.data.impl.CarListRepositoryImpl
 import ru.delayvi.drive3.data.impl.UserRepositoryImpl
+import ru.delayvi.drive3.data.settings.AppSettings
+import ru.delayvi.drive3.data.settings.SharedPreferencesAppSettings
 import ru.delayvi.drive3.domain.repository.CarListRepository
 import ru.delayvi.drive3.domain.repository.UserRepository
 
@@ -15,4 +17,7 @@ interface AppBindsModule {
 
     @Binds
     fun bindUserRepositoryImplToUserRepository(impl: UserRepositoryImpl): UserRepository
+
+    @Binds
+    fun bindSharedPreferencesAppSettingsToAppSettings(impl: SharedPreferencesAppSettings): AppSettings
 }

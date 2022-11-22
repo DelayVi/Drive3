@@ -1,11 +1,13 @@
 package ru.delayvi.drive3.presentation.screens.profile_fragment
 
+
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import ru.delayvi.drive3.databinding.FragmentProfileBinding
@@ -54,24 +56,24 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        with(binding){
-            buttonSignIn?.setOnClickListener {
-                viewModel.signIn(etLogin.text.toString(), etPassword.text.toString())
+        with(binding) {
+            buttonSignIn.setOnClickListener {
+                if ((etLogin.text.toString().isBlank()) || (etPassword.text.toString().isBlank()))
+                    Toast.makeText(requireContext(), "Не все поля заполнены", Toast.LENGTH_LONG).show()
+                else viewModel.signIn(etLogin.text.toString(), etPassword.text.toString())
             }
-            buttonSignUp?.setOnClickListener {
+            buttonSignUp.setOnClickListener {
                 viewModel.signUpTest(LoggedForm(etLogin.text.toString(), etPassword.text.toString()))
             }
-            buttonLogout?.setOnClickListener {
+            buttonLogout.setOnClickListener {
                 viewModel.logout()
             }
 
-            viewModel.currentUserView.observe(viewLifecycleOwner) {
-                tvCurrentUserDisplayName?.text = it.displayName
-                Log.d("MyLog", "search fragment current user: $it")
-            }
-            viewModel.isAuthorized.observe(viewLifecycleOwner) {
-                tvIsAuthResult?.text = it.toString()
-                Log.d("MyLog", "isAuthorized in fragment: $it")
+            viewModel.isSignedIn.observe(viewLifecycleOwner) {
+                Log.d("MyLog", "srabotal observe")
+                tvIsAuthResult.text = it.toString()
+                tvCurrentUserDisplayName.text = viewModel.getCurrentUserView()
+                Log.d("MyLog", "isAuthorized in fragment: $it , current userVIew ${viewModel.getCurrentUserView()}")
             }
 
 
