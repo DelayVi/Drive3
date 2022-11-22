@@ -15,7 +15,7 @@ import java.util.*
 )
 data class UserDbModel(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    val id: Long,
     val username: String,
     val password: String,
 ) {

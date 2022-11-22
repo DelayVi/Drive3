@@ -2,9 +2,10 @@ package ru.delayvi.drive3.domain.repository
 
 import androidx.lifecycle.LiveData
 import ru.delayvi.drive3.domain.entity.users.LoggedForm
-import ru.delayvi.drive3.domain.entity.users.CurrentUserView
 
 interface UserRepository {
+
+    fun isSignedIn(): LiveData<Boolean>
 
     suspend fun signUp(loggedForm: LoggedForm)
 
@@ -12,7 +13,5 @@ interface UserRepository {
 
     suspend fun logout()
 
-    fun getCurrentUserView(): LiveData<CurrentUserView>
-
-    fun isAuthorized(): LiveData<Boolean>
+    fun getCurrentUserView(): String
 }

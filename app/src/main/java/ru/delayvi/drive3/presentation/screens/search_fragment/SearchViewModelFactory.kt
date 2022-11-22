@@ -10,7 +10,6 @@ import javax.inject.Inject
 class SearchViewModelFactory @Inject constructor(
     private val getCarListUseCase: GetCarListUseCase,
     private val makeFavoriteUseCase: MakeFavoriteUseCase,
-    private val isAuthorizedUseCase: IsAuthorizedUseCase,
     private val signUpUseCaseTest: SignUpUseCase,
     private val signInUseCase: SignInUseCase,
     private val getCurrentUserViewUseCase: GetCurrentUserViewUseCase,
@@ -20,7 +19,6 @@ class SearchViewModelFactory @Inject constructor(
         return SearchViewModel(
             getCarListUseCase,
             makeFavoriteUseCase,
-            isAuthorizedUseCase,
             signUpUseCaseTest,
             signInUseCase,
             getCurrentUserViewUseCase,

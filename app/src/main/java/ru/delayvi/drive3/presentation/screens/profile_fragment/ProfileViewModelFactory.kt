@@ -6,7 +6,7 @@ import ru.delayvi.drive3.domain.usecases.users.*
 import javax.inject.Inject
 
 class ProfileViewModelFactory @Inject constructor(
-    private val isAuthorizedUseCase: IsAuthorizedUseCase,
+    private val isSignedInUseCase: IsSignedInUseCase,
     private val signUpUseCaseTest: SignUpUseCase,
     private val signInUseCase: SignInUseCase,
     private val getCurrentUserViewUseCase: GetCurrentUserViewUseCase,
@@ -14,7 +14,7 @@ class ProfileViewModelFactory @Inject constructor(
 ): ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return ProfileViewModel(
-            isAuthorizedUseCase,
+            isSignedInUseCase,
             signUpUseCaseTest,
             signInUseCase,
             getCurrentUserViewUseCase,

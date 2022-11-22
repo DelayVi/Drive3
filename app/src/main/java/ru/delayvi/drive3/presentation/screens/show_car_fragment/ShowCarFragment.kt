@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 class ShowCarFragment : Fragment() {
 
-    private val args by navArgs<ShowCarFragmentArgs>()
+    //private val args by navArgs<ShowCarFragmentArgs>()
 
     private var _binding: FragmentShowCarBinding? = null
     private val binding: FragmentShowCarBinding
@@ -48,7 +48,7 @@ class ShowCarFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getCar(args.carId)
+       // viewModel.getCar(args.carId)
 
         binding.tvTakeCredit.setOnClickListener{
             toast("Бери кредит")

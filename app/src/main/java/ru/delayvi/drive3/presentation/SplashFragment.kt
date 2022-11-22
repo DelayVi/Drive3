@@ -27,9 +27,9 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        private val component by lazy {
-            DaggerAppComponent.factory().create(this)
-        }
+//        private val component by lazy {
+//            DaggerAppComponent.factory().create(this)
+//        }
     }
 
 }
